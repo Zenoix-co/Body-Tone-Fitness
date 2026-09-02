@@ -1,0 +1,139 @@
+<!doctype html><html lang="en"><head><title>Contact | Body Tone Fitness</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><style>
+:root{--black:#070707;--black2:#101010;--white:#f7f7f5;--gold:#c9a24a;--gold2:#e4c36c;--red:#b5111a;--muted:#92928e;--line:#292929}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}.hidden{display:none!important}
+.container{width:min(1180px,92%);margin:auto}.nav{position:sticky;top:0;z-index:50;background:rgba(7,7,7,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.navin{height:74px;display:flex;align-items:center;gap:26px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:2px}.logo{width:48px;height:48px;object-fit:contain;border-radius:50%}.brand small{display:block;color:var(--gold);font-size:8px;letter-spacing:3px}.links{margin-left:auto;display:flex;gap:18px;align-items:center}.links a{font-size:12px;color:#aaa}.links a:hover{color:#fff}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:5px;padding:12px 18px;font-weight:800;font-size:12px;cursor:pointer}.gold{background:var(--gold);color:#090909}.red{background:var(--red);color:#fff}.outline{background:transparent;color:#fff;border-color:#4a4a4a}.mobile-menu-btn{display:none;margin-left:auto;background:#0e0e0e;color:#fff;border:1px solid #333;border-radius:6px;width:44px;height:40px;font-size:20px}.mobile-menu{display:none}
+.hero{min-height:calc(100vh - 74px);display:flex;align-items:center;background:radial-gradient(circle at 80% 25%,rgba(201,162,74,.13),transparent 30%),linear-gradient(100deg,#070707 25%,rgba(7,7,7,.88)),url('logo.png') right 8% center/480px auto no-repeat}.kicker{font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(55px,8vw,105px);line-height:.88;letter-spacing:-4px;margin:15px 0 24px}.hero h1 em{font-style:normal;color:var(--gold)}.hero p,.muted{color:var(--muted);line-height:1.75}.hero p{max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.section{padding:88px 0}.dark2{background:#0c0c0c}.head{text-align:center;margin-bottom:38px}.head h2,.pagehero h1{font-size:42px;margin:8px 0;letter-spacing:-1px}.head p,.pagehero p{max-width:680px;margin:auto;color:var(--muted);line-height:1.7}.goldline{height:2px;width:45px;background:var(--gold);margin:16px auto}.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.card{background:linear-gradient(145deg,#111,#0c0c0c);border:1px solid var(--line);border-radius:10px;padding:24px}.card h3{margin:15px 0 8px}.icon{width:38px;height:38px;border:1px solid #3b3b3b;border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:11px;font-weight:900}.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.stat{padding:27px;text-align:center;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat b{display:block;color:var(--gold);font-size:30px}.stat span{font-size:10px;color:#888;letter-spacing:1px}
+.pagehero{padding:85px 0 60px;background:radial-gradient(circle at 80% 30%,rgba(181,17,26,.13),transparent 30%);border-bottom:1px solid var(--line)}.pagehero h1{font-size:62px;margin:10px 0}.price{font-size:36px;font-weight:900}.price small{font-size:12px;color:#777}.plan{position:relative}.featured{border-color:var(--gold)}.badge{position:absolute;right:15px;top:-11px;background:var(--red);font-size:9px;padding:5px 9px;border-radius:99px;font-weight:900}.plan ul{padding-left:18px;color:#aaa;line-height:2}
+.formbox{max-width:820px;margin:auto}.form{display:grid;gap:15px}.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field label{display:block;font-size:10px;font-weight:900;color:#ddd;margin-bottom:7px;letter-spacing:.5px}.field input,.field select,.field textarea{width:100%;background:#0b0b0b;border:1px solid #333;color:#fff;border-radius:6px;padding:13px;outline:0}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}textarea{min-height:105px;resize:vertical}.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.slot{background:#0c0c0c;color:#aaa;border:1px solid #333;border-radius:5px;padding:9px;font-size:11px;cursor:pointer}.slot.selected{background:var(--gold);color:#080808;border-color:var(--gold)}.notice{background:#111;border-left:3px solid var(--gold);padding:13px;color:#aaa;font-size:12px;line-height:1.6}.qr{border:1px dashed #444;padding:22px;text-align:center;color:#888}
+.person img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:7px;filter:grayscale(100%)}.special{color:var(--gold);font-size:11px;font-weight:800}.social{display:flex;gap:7px;margin-top:12px}.social button{width:32px;height:32px;border-radius:50%;border:1px solid #333;background:#0b0b0b;color:#aaa}
+.profilegrid{display:grid;grid-template-columns:220px 1fr;gap:18px}.side{background:#0d0d0d;border:1px solid var(--line);border-radius:10px;padding:15px;height:max-content}.side button{width:100%;text-align:left;background:none;border:0;color:#aaa;padding:12px;border-radius:5px}.side button.active,.side button:hover{background:var(--red);color:#fff}.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.report{display:flex;justify-content:space-between;align-items:center;border:1px solid #2c2c2c;padding:13px;border-radius:6px;margin-top:9px}.pill{font-size:10px;padding:4px 7px;border-radius:99px;background:#18361e;color:#8de39a}.footer{border-top:1px solid var(--line);padding:55px 0;color:#777}.footgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}.footer h4{color:#fff}.footer a{display:block;padding:5px 0;font-size:12px}.copyright{border-top:1px solid var(--line);padding-top:18px;margin-top:30px;font-size:11px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:100;display:grid;place-items:center;padding:20px}.modalbox{width:min(520px,100%);max-height:90vh;overflow:auto;background:#101010;border:1px solid #333;border-radius:10px;padding:28px}.close{float:right;background:none;border:0;color:#aaa;font-size:25px;cursor:pointer}.toast{position:fixed;right:20px;bottom:20px;background:#fff;color:#080808;padding:13px 18px;border-radius:5px;font-size:12px;font-weight:800;z-index:200}
+@media(max-width:900px){.links{display:none}.mobile-menu-btn{display:block}.mobile-menu.open{display:block;position:absolute;top:74px;left:0;right:0;background:#070707;border-bottom:1px solid #333;padding:12px 5% 18px}.mobile-menu a{display:block;padding:12px 0;border-bottom:1px solid #222;color:#ddd;font-size:13px}.mobile-menu .btn{width:100%;margin-top:9px}.hero{background:radial-gradient(circle at 85% 18%,rgba(201,162,74,.1),transparent 28%),linear-gradient(100deg,#070707 20%,rgba(7,7,7,.94)),url('logo.png') right 10% center/220px auto no-repeat}.hero .container{padding:55px 0 70px}.hero h1{font-size:clamp(48px,14vw,70px);letter-spacing:-2.5px}.actions{display:grid;grid-template-columns:1fr;max-width:390px}.actions .btn{width:100%}.g3,.g4,.two,.profilegrid,.footgrid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stat{border-bottom:1px solid var(--line)}.slots{grid-template-columns:repeat(3,1fr)}.pagehero h1{font-size:45px}.mini{grid-template-columns:1fr}}
+</style></head><body><nav class="nav"><div class="container navin">
+<a class="brand" href="./index.html"><img class="logo" src="logo.png"><span>BODY TONE<small>FITNESS</small></span></a>
+<div class="links"><a href="./index.html">Home</a><a href="./membership.html">Membership</a><a href="./services.html">Services</a><a href="./trainers.html">Trainers</a><a href="./professionals.html">Professionals</a><a href="./about.html">About</a><a href="./contact.html">Contact</a><a href="./profile.html">Profile</a><button class="btn outline guest" onclick="openAuth('login')">Login</button><button class="btn gold guest" onclick="openAuth('signup')">Sign Up</button><button class="btn gold member hidden" onclick="location.href='profile.html'">My Profile</button><button class="btn outline member hidden" onclick="signOut()">Logout</button></div>
+<button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+<div class="mobile-menu" id="mobileMenu"><a href="./index.html">Home</a><a href="./membership.html">Membership</a><a href="./services.html">Services</a><a href="./blood-test.html">Book Blood Test</a><a href="./bmi.html">Book BMI Test</a><a href="./trainers.html">Trainers</a><a href="./professionals.html">Professionals</a><a href="./about.html">About</a><a href="./contact.html">Contact</a><a href="./profile.html">My Profile</a><button class="btn outline guest" onclick="openAuth('login')">Login</button><button class="btn gold guest" onclick="openAuth('signup')">Sign Up</button><button class="btn gold member hidden" onclick="location.href='profile.html'">My Profile</button><button class="btn outline member hidden" onclick="signOut()">Logout</button></div>
+</div></nav><main><section class="pagehero"><div class="container"><div class="kicker">CONTACT</div><h1>Let’s Talk.</h1><p>Memberships, bookings, training or consultations.</p></div></section><section class="section"><div class="container"><div class="grid g3"><div class="card"><div class="icon">01</div><h3>Visit</h3><p class="muted">Body Tone Fitness<br>Your Gym Address<br>Hubballi, Karnataka</p></div><div class="card"><div class="icon">02</div><h3>Call</h3><p class="muted">+91 90000 00000<br>6:00 AM – 10:00 PM</p></div><div class="card"><div class="icon">03</div><h3>Email</h3><p class="muted">hello@bodytonefitness.example</p></div></div><div class="card" style="margin-top:18px"><form class="form" onsubmit="event.preventDefault();toast('Message received')"><div class="two"><div class="field"><label>NAME</label><input required></div><div class="field"><label>MOBILE</label><input required></div></div><div class="field"><label>MESSAGE</label><textarea required></textarea></div><button class="btn gold">Send Message</button></form></div></div></section></main><footer class="footer"><div class="container"><div class="footgrid"><div><div class="brand"><img class="logo" src="logo.png"><span>BODY TONE<small>FITNESS</small></span></div><p>Train with purpose. Live stronger.</p></div><div><h4>Explore</h4><a href="./membership.html">Membership</a><a href="./services.html">Health Services</a><a href="./trainers.html">Trainers</a></div><div><h4>Support</h4><a href="./profile.html">My Profile</a><a href="./contact.html">Contact</a><a href="./about.html">FAQ</a></div><div><h4>Hours</h4><p>6:00 AM – 10:00 PM<br>Monday – Sunday</p></div></div><div class="copyright">© 2026 Body Tone Fitness. All rights reserved.</div></div></footer><div id="modal" class="modal hidden"><div id="modalContent" class="modalbox"></div></div><div id="toast" class="toast hidden"></div><script>
+const SUPABASE_URL = window.BTF_CONFIG?.supabaseUrl || "";
+const SUPABASE_ANON_KEY = window.BTF_CONFIG?.supabaseAnonKey || "";
+let sb = null;
+function configError(){
+ const c=window.BTF_CONFIG||{};
+ if(!c.supabaseUrl || c.supabaseUrl.includes("YOUR_PROJECT") || !c.supabaseAnonKey || c.supabaseAnonKey.includes("YOUR_"))
+   return "Supabase is not configured yet. Add your Project URL and Publishable/anon key to config.js.";
+ if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(c.supabaseUrl))
+   return "The Supabase Project URL in config.js is invalid.";
+ return "";
+}
+async function initSupabase(){
+ const ce=configError(); if(ce){window.BTF_SETUP_ERROR=ce; return false;}
+ if(!SUPABASE_URL || !SUPABASE_ANON_KEY) return false;
+ if(!window.supabase) return false;
+ sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+ sb.auth.onAuthStateChange(()=>updateAuthUI());
+ return true;
+}
+function toast(m){const t=document.querySelector('#toast');t.textContent=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2500)}
+function toggleMenu(){document.querySelector('#mobileMenu')?.classList.toggle('open')}
+function closeMenu(){document.querySelector('#mobileMenu')?.classList.remove('open')}
+async function currentUser(){if(!sb)return null;const {data:{user}}=await sb.auth.getUser();return user}
+async function updateAuthUI(){
+ const u=await currentUser(); const logged=!!u;
+ document.querySelectorAll('.guest').forEach(x=>x.classList.toggle('hidden',logged));
+ document.querySelectorAll('.member').forEach(x=>x.classList.toggle('hidden',!logged));
+ if(document.querySelector('#memberName')&&u)document.querySelector('#memberName').textContent=u.user_metadata?.full_name||u.email;
+}
+function openAuth(mode){
+ if(!sb){showConfigNotice();return}
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">${mode==='login'?'MEMBER LOGIN':'JOIN BODY TONE'}</div><h2>${mode==='login'?'Welcome back.':'Create your member account.'}</h2><form class="form" onsubmit="submitAuth(event,'${mode}')">${mode==='signup'?'<div class="field"><label>FULL NAME</label><input id="authName" required></div>':''}<div class="field"><label>EMAIL</label><input id="authEmail" type="email" required></div><div class="field"><label>PASSWORD</label><input id="authPassword" type="password" minlength="6" required></div><button class="btn gold">${mode==='login'?'Sign In':'Create Account'}</button></form><p class="muted" style="font-size:11px">Your account is stored in the secure authentication system, not in the browser.</p>`)
+}
+async function submitAuth(e,mode){
+ e.preventDefault(); if(!sb)return;
+ const email=document.querySelector('#authEmail').value.trim(),password=document.querySelector('#authPassword').value;
+ let r;
+ if(mode==='signup'){const name=document.querySelector('#authName').value.trim();r=await sb.auth.signUp({email,password,options:{data:{full_name:name}}})}
+ else r=await sb.auth.signInWithPassword({email,password});
+ if(r.error){
+ const msg=(r.error.message||"").toLowerCase().includes("fetch")
+  ? "Could not reach Supabase. Check config.js and Supabase Auth URL settings."
+  : r.error.message;
+ toast(msg); return
+ }
+ closeModal();await updateAuthUI();toast(mode==='signup'?'Account created. Check email if confirmation is enabled.':'Signed in successfully.');setTimeout(()=>location.href='profile.html',500)
+}
+async function signOut(){if(sb)await sb.auth.signOut();closeMenu();toast('Signed out');setTimeout(()=>location.href='index.html',300)}
+function showConfigNotice(){
+ const msg=window.BTF_SETUP_ERROR||"Supabase connection is unavailable.";
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">ACCOUNT CONNECTION</div><h2>Supabase setup needed</h2><p class="muted">${msg}</p><p class="muted">After changing config.js, redeploy the complete folder to Netlify.</p>`)
+}
+function modal(h){document.querySelector('#modalContent').innerHTML=h;document.querySelector('#modal').classList.remove('hidden')}
+function closeModal(){document.querySelector('#modal').classList.add('hidden')}
+
+async function choosePlan(name,price){
+ if(!await currentUser()){openAuth('login');return}
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">MEMBERSHIP</div><h2>${name}</h2><div class="price">₹${price.toLocaleString()}<small>/month</small></div><p class="muted">Payment gateway is ready to be connected. The membership is only activated after verified payment.</p><button class="btn gold" onclick="startPayment('${name}',${price})">Continue to UPI Checkout</button>`)
+}
+async function startPayment(name,price){
+ toast('Connect Razorpay/your verified UPI gateway to enable live checkout.');
+ closeModal()
+}
+
+function slots(interval){let a=[];[[6,10],[17,21]].forEach(r=>{for(let h=r[0];h<r[1];h++)for(let m=0;m<60;m+=interval)a.push(String(h).padStart(2,'0')+':'+String(m).padStart(2,'0'))});return a}
+function makeSlots(interval){const el=document.querySelector('#slots');if(el)el.innerHTML=slots(interval).map(s=>`<button type="button" class="slot" onclick="pickSlot(this,'${s}')">${s}</button>`).join('')}
+function pickSlot(el,v){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');document.querySelector('#slot').value=v}
+async function submitBooking(e,type){
+ e.preventDefault();const u=await currentUser();if(!u){openAuth('login');return}
+ const slot=document.querySelector('#slot').value;if(!slot){toast('Choose a time slot');return}
+ const date=document.querySelector('#date').value, locationValue=document.querySelector('#location')?.value||'At Gym', address=document.querySelector('#address')?.value||null;
+ const {error}=await sb.from('test_bookings').insert({user_id:u.id,test_type:type,booking_date:date,booking_time:slot,location:locationValue,address:address,status:'confirmed'});
+ if(error){toast(error.message);return}
+ if(type==='bmi'){
+   const d=new Date(date+'T12:00:00');d.setDate(d.getDate()+30);
+   await sb.from('test_reminders').upsert({user_id:u.id,booking_id:null,reminder_type:'BMI_RETEST',due_date:d.toISOString().slice(0,10),status:'pending'},{onConflict:'user_id,reminder_type'})
+ }
+ toast(type==='bmi'?'BMI test booked. Retest reminder saved.':'Blood test booked.');
+ setTimeout(()=>location.href='profile.html',700)
+}
+async function loadProfile(){
+ const u=await currentUser();if(!u){openAuth('login');return}
+ const name=u.user_metadata?.full_name||u.email; if(document.querySelector('#memberName'))document.querySelector('#memberName').textContent=name;
+ const {data:profile}=await sb.from('profiles').select('*').eq('id',u.id).maybeSingle();
+ const {data:memberships}=await sb.from('memberships').select('*').eq('user_id',u.id).order('created_at',{ascending:false});
+ const {data:bookings}=await sb.from('test_bookings').select('*').eq('user_id',u.id).order('booking_date',{ascending:false}).order('booking_time',{ascending:false});
+ const {data:rem}=await sb.from('test_reminders').select('*').eq('user_id',u.id).eq('status','pending').order('due_date',{ascending:true}).limit(1);
+ const {data:reports}=await sb.from('reports').select('*').eq('user_id',u.id).order('uploaded_at',{ascending:false});
+ document.querySelector('#membership').textContent=memberships?.[0]?.plan_name||'No active membership';
+ document.querySelector('#membershipStatus').textContent=memberships?.[0]?.status||'—';
+ document.querySelector('#nextTest').textContent=rem?.[0]?.due_date?new Date(rem[0].due_date).toLocaleDateString():'Not scheduled';
+ const b=bookings?.[0];document.querySelector('#recentBooking').textContent=b?`${b.test_type==='bmi'?'BMI Test':'Blood Test'} — ${b.booking_date} at ${b.booking_time}`:'No bookings';
+ document.querySelector('#bookingHistory').innerHTML=(bookings||[]).map(b=>`<div class="report"><div><b>${b.test_type==='bmi'?'BMI Test':'Blood Test'}</b><div class="muted">${b.booking_date} • ${b.booking_time} • ${b.location}</div></div><span class="pill">${b.status}</span></div>`).join('')||'<p class="muted">No tests booked yet.</p>';
+ document.querySelector('#reportList').innerHTML=(reports||[]).map(r=>`<div class="report"><div><b>${r.title||'Blood Test Report'}</b><div class="muted">${new Date(r.uploaded_at).toLocaleDateString()}</div></div><button class="btn outline" onclick="viewReport('${r.id}')">View</button></div>`).join('')||'<p class="muted">No reports uploaded yet.</p>';
+}
+async function viewReport(id){
+ const {data,error}=await sb.from('reports').select('storage_path').eq('id',id).single();if(error){toast(error.message);return}
+ const {data:url}=await sb.storage.from('medical-reports').createSignedUrl(data.storage_path,120);if(url?.signedUrl)window.open(url.signedUrl,'_blank');else toast('Could not open report');
+}
+async function saveProfile(e){
+ e.preventDefault();const u=await currentUser();if(!u)return;
+ const name=document.querySelector('#editName').value.trim(),phone=document.querySelector('#editPhone').value.trim();
+ const {error}=await sb.from('profiles').upsert({id:u.id,full_name:name,phone:phone});
+ if(error){toast(error.message);return}
+ await sb.auth.updateUser({data:{full_name:name}});toast('Profile updated');loadProfile()
+}
+async function adminUpload(){
+ const u=await currentUser();if(!u){openAuth('login');return}
+ const {data:p}=await sb.from('profiles').select('role').eq('id',u.id).single();
+ if(p?.role!=='admin'){toast('Admin access required');return}
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">ADMIN</div><h2>Upload Member Report</h2><form class="form" onsubmit="uploadReport(event)"><div class="field"><label>MEMBER USER ID</label><input id="reportUser" required placeholder="UUID from member profile"></div><div class="field"><label>REPORT TITLE</label><input id="reportTitle" value="Blood Test Report" required></div><div class="field"><label>PDF REPORT</label><input id="reportFile" type="file" accept=".pdf" required></div><button class="btn red">Upload Securely</button></form>`)
+}
+async function uploadReport(e){
+ e.preventDefault();const u=await currentUser();const {data:p}=await sb.from('profiles').select('role').eq('id',u.id).single();if(p?.role!=='admin'){toast('Admin access required');return}
+ const member=document.querySelector('#reportUser').value.trim(),file=document.querySelector('#reportFile').files[0];if(!file)return;
+ const path=`${member}/${crypto.randomUUID()}-${file.name.replace(/[^a-zA-Z0-9._-]/g,'_')}`;
+ const up=await sb.storage.from('medical-reports').upload(path,file,{contentType:'application/pdf',upsert:false});if(up.error){toast(up.error.message);return}
+ const ins=await sb.from('reports').insert({user_id:member,title:document.querySelector('#reportTitle').value,storage_path:path,uploaded_by:u.id});if(ins.error){await sb.storage.from('medical-reports').remove([path]);toast(ins.error.message);return}
+ closeModal();toast('Private report uploaded to the member profile')
+}
+initSupabase().then(()=>{updateAuthUI();});</script></body></html>

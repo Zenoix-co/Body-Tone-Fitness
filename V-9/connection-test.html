@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
+<title>Body Tone Fitness — Connection Test</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script>
+<style>body{font-family:system-ui;background:#070707;color:#fff;padding:30px;max-width:850px;margin:auto}.box{border:1px solid #333;padding:18px;border-radius:8px;margin:12px 0}.ok{color:#8de39a}.bad{color:#ff7373}</style></head>
+<body><header style="padding:18px 5%;border-bottom:1px solid #292929;background:#070707"><a href="index.html" style="display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:900;letter-spacing:2px"><img src="logo.png" alt="Body Tone Fitness" style="width:42px;height:42px;object-fit:contain;border-radius:50%"><span>BODY TONE<small style="display:block;color:#c9a24a;font-size:8px;letter-spacing:3px">FITNESS</small></span></a></header><h1>Body Tone Fitness — Connection Test</h1><div id="out"></div>
+<script>
+(async()=>{
+ const c=window.BTF_CONFIG||{},o=document.querySelector('#out'),rows=[];
+ const valid=c.supabaseUrl && /^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(c.supabaseUrl) && c.supabaseAnonKey && !String(c.supabaseAnonKey).includes("YOUR_");
+ rows.push(["Config loaded",!!window.BTF_CONFIG]);
+ rows.push(["Project URL present",!!c.supabaseUrl && !String(c.supabaseUrl).includes("YOUR_")]);
+ rows.push(["Browser key present",!!c.supabaseAnonKey && !String(c.supabaseAnonKey).includes("YOUR_")]);
+ if(valid){try{const client=supabase.createClient(c.supabaseUrl,c.supabaseAnonKey);const r=await client.auth.getSession();rows.push(["Supabase reachable",!r.error,r.error?.message||"OK"])}catch(e){rows.push(["Supabase reachable",false,e.message])}}
+ else rows.push(["Supabase reachable",false,"Fix config.js first"]);
+ o.innerHTML=rows.map(r=>`<div class="box"><b>${r[0]}</b>: <span class="${r[1]?'ok':'bad'}">${r[1]?"PASS":"FAIL"}</span><br><small>${r[2]||""}</small></div>`).join("");
+})();
+</script></body></html>

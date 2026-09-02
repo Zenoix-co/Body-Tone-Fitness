@@ -1,0 +1,342 @@
+<!doctype html><html lang="en"><head><title>Membership | Body Tone Fitness</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><style>
+:root{--black:#070707;--black2:#101010;--white:#f7f7f5;--gold:#c9a24a;--gold2:#e4c36c;--red:#b5111a;--muted:#92928e;--line:#292929}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}.hidden{display:none!important}
+.container{width:min(1180px,92%);margin:auto}.nav{position:sticky;top:0;z-index:50;background:rgba(7,7,7,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.navin{height:74px;display:flex;align-items:center;gap:26px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:2px}.logo{width:48px;height:48px;object-fit:contain;border-radius:50%}.brand small{display:block;color:var(--gold);font-size:8px;letter-spacing:3px}.links{margin-left:auto;display:flex;gap:18px;align-items:center}.links a{font-size:12px;color:#aaa}.links a:hover{color:#fff}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:5px;padding:12px 18px;font-weight:800;font-size:12px;cursor:pointer}.gold{background:var(--gold);color:#090909}.red{background:var(--red);color:#fff}.outline{background:transparent;color:#fff;border-color:#4a4a4a}.mobile-menu-btn{display:none;margin-left:auto;background:#0e0e0e;color:#fff;border:1px solid #333;border-radius:6px;width:44px;height:40px;font-size:20px}.mobile-menu{display:none}
+.hero{min-height:calc(100vh - 74px);display:flex;align-items:center;background:radial-gradient(circle at 80% 25%,rgba(201,162,74,.13),transparent 30%),linear-gradient(100deg,#070707 25%,rgba(7,7,7,.88)),url('logo.png') right 8% center/480px auto no-repeat}.kicker{font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(55px,8vw,105px);line-height:.88;letter-spacing:-4px;margin:15px 0 24px}.hero h1 em{font-style:normal;color:var(--gold)}.hero p,.muted{color:var(--muted);line-height:1.75}.hero p{max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.section{padding:88px 0}.dark2{background:#0c0c0c}.head{text-align:center;margin-bottom:38px}.head h2,.pagehero h1{font-size:42px;margin:8px 0;letter-spacing:-1px}.head p,.pagehero p{max-width:680px;margin:auto;color:var(--muted);line-height:1.7}.goldline{height:2px;width:45px;background:var(--gold);margin:16px auto}.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.card{background:linear-gradient(145deg,#111,#0c0c0c);border:1px solid var(--line);border-radius:10px;padding:24px}.card h3{margin:15px 0 8px}.icon{width:38px;height:38px;border:1px solid #3b3b3b;border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:11px;font-weight:900}.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.stat{padding:27px;text-align:center;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat b{display:block;color:var(--gold);font-size:30px}.stat span{font-size:10px;color:#888;letter-spacing:1px}
+.pagehero{padding:85px 0 60px;background:radial-gradient(circle at 80% 30%,rgba(181,17,26,.13),transparent 30%);border-bottom:1px solid var(--line)}.pagehero h1{font-size:62px;margin:10px 0}.price{font-size:36px;font-weight:900}.price small{font-size:12px;color:#777}.plan{position:relative}.featured{border-color:var(--gold)}.badge{position:absolute;right:15px;top:-11px;background:var(--red);font-size:9px;padding:5px 9px;border-radius:99px;font-weight:900}.plan ul{padding-left:18px;color:#aaa;line-height:2}
+.formbox{max-width:820px;margin:auto}.form{display:grid;gap:15px}.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field label{display:block;font-size:10px;font-weight:900;color:#ddd;margin-bottom:7px;letter-spacing:.5px}.field input,.field select,.field textarea{width:100%;background:#0b0b0b;border:1px solid #333;color:#fff;border-radius:6px;padding:13px;outline:0}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}textarea{min-height:105px;resize:vertical}.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.slot{background:#0c0c0c;color:#aaa;border:1px solid #333;border-radius:5px;padding:9px;font-size:11px;cursor:pointer}.slot.selected{background:var(--gold);color:#080808;border-color:var(--gold)}.notice{background:#111;border-left:3px solid var(--gold);padding:13px;color:#aaa;font-size:12px;line-height:1.6}.qr{border:1px dashed #444;padding:22px;text-align:center;color:#888}
+.person img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:7px;filter:grayscale(100%)}.special{color:var(--gold);font-size:11px;font-weight:800}.social{display:flex;gap:7px;margin-top:12px}.social button{width:32px;height:32px;border-radius:50%;border:1px solid #333;background:#0b0b0b;color:#aaa}
+.profilegrid{display:grid;grid-template-columns:220px 1fr;gap:18px}.side{background:#0d0d0d;border:1px solid var(--line);border-radius:10px;padding:15px;height:max-content}.side button{width:100%;text-align:left;background:none;border:0;color:#aaa;padding:12px;border-radius:5px}.side button.active,.side button:hover{background:var(--red);color:#fff}.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.report{display:flex;justify-content:space-between;align-items:center;border:1px solid #2c2c2c;padding:13px;border-radius:6px;margin-top:9px}.pill{font-size:10px;padding:4px 7px;border-radius:99px;background:#18361e;color:#8de39a}.footer{border-top:1px solid var(--line);padding:55px 0;color:#777}.footgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}.footer h4{color:#fff}.footer a{display:block;padding:5px 0;font-size:12px}.copyright{border-top:1px solid var(--line);padding-top:18px;margin-top:30px;font-size:11px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:100;display:grid;place-items:center;padding:20px}.modalbox{width:min(520px,100%);max-height:90vh;overflow:auto;background:#101010;border:1px solid #333;border-radius:10px;padding:28px}.close{float:right;background:none;border:0;color:#aaa;font-size:25px;cursor:pointer}.toast{position:fixed;right:20px;bottom:20px;background:#fff;color:#080808;padding:13px 18px;border-radius:5px;font-size:12px;font-weight:800;z-index:200}
+@media(max-width:900px){.links{display:none}.mobile-menu-btn{display:block}.mobile-menu.open{display:block;position:absolute;top:74px;left:0;right:0;background:#070707;border-bottom:1px solid #333;padding:12px 5% 18px}.mobile-menu a{display:block;padding:12px 0;border-bottom:1px solid #222;color:#ddd;font-size:13px}.mobile-menu .btn{width:100%;margin-top:9px}.hero{background:radial-gradient(circle at 85% 18%,rgba(201,162,74,.1),transparent 28%),linear-gradient(100deg,#070707 20%,rgba(7,7,7,.94)),url('logo.png') right 10% center/220px auto no-repeat}.hero .container{padding:55px 0 70px}.hero h1{font-size:clamp(48px,14vw,70px);letter-spacing:-2.5px}.actions{display:grid;grid-template-columns:1fr;max-width:390px}.actions .btn{width:100%}.g3,.g4,.two,.profilegrid,.footgrid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stat{border-bottom:1px solid var(--line)}.slots{grid-template-columns:repeat(3,1fr)}.pagehero h1{font-size:45px}.mini{grid-template-columns:1fr}}
+
+/* Package carousel — image-free, swipe/drag friendly */
+.package-hero{padding-bottom:72px;background:radial-gradient(circle at 80% 35%,rgba(201,162,74,.12),transparent 28%),radial-gradient(circle at 15% 70%,rgba(181,16,24,.08),transparent 25%),#090909}
+.package-section{padding:78px 0 92px;background:#070707;overflow:hidden}
+.package-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:26px}
+.package-heading h2,.terms-title h2{font-size:clamp(34px,5vw,52px);margin:8px 0 0;letter-spacing:-1.8px}
+.slider-controls{display:flex;gap:9px;flex-shrink:0}
+.slide-btn{width:48px;height:48px;border:1px solid #3a3a3a;background:#101010;color:#fff;border-radius:50%;font-size:20px;cursor:pointer;transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.slide-btn:hover{transform:translateY(-2px);border-color:var(--gold);background:#16130d}
+.slide-btn:focus-visible,.package-slider:focus-visible,.package-dot:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.package-slider{position:relative;overflow:hidden;border:1px solid #292929;border-radius:22px;background:linear-gradient(145deg,#131313,#090909);box-shadow:0 28px 80px rgba(0,0,0,.38);cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+.package-slider.dragging{cursor:grabbing}
+.package-track{display:flex;will-change:transform;transition:transform .72s cubic-bezier(.16,.84,.24,1)}
+.package-track.dragging{transition:none}
+.package-slide{min-width:100%;padding:52px 58px 58px;display:flex;flex-direction:column;justify-content:center;min-height:520px;position:relative;overflow:hidden;opacity:.25;transform:scale(.985);transition:opacity .5s ease,transform .72s cubic-bezier(.16,.84,.24,1)}
+.package-slide:before{content:"";position:absolute;width:520px;height:520px;right:-250px;top:-270px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,74,.13),transparent 67%);pointer-events:none}
+.package-slide:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 48%,rgba(201,162,74,.035) 68%,transparent 100%);pointer-events:none}
+.package-slide.active{opacity:1;transform:scale(1)}
+.package-number{position:relative;z-index:2;align-self:flex-start;font-size:11px;letter-spacing:3px;font-weight:900;color:#fff;border:1px solid rgba(255,255,255,.15);padding:9px 12px;border-radius:999px;background:#101010;margin-bottom:25px}
+.package-copy{position:relative;z-index:2;max-width:900px}
+.package-kicker{color:var(--gold);font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase}
+.package-copy h3{font-size:clamp(34px,5vw,64px);line-height:.95;letter-spacing:-2.4px;margin:10px 0 12px;text-transform:uppercase;max-width:850px}
+.package-copy .tagline{color:#9e9e99;font-size:14px;line-height:1.65;max-width:650px;margin:0 0 28px}
+.package-options{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.term-pill{background:#0d0d0d;color:#aaa;border:1px solid #333;border-radius:6px;padding:9px 12px;font-size:11px;font-weight:800;cursor:pointer;transition:.25s ease}
+.term-pill:hover{border-color:#666;color:#fff}.term-pill.active{background:var(--gold);border-color:var(--gold);color:#090909}
+.package-price-row{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:15px}
+.package-price{font-size:clamp(44px,5.2vw,72px);font-weight:950;line-height:.9;letter-spacing:-3px;color:#fff}
+.package-price small{font-size:12px;color:#777;letter-spacing:0;font-weight:700}
+.actual-price{text-decoration:line-through;color:#666;font-size:16px;font-weight:700;margin-bottom:5px}.discount-badge{background:#17130a;border:1px solid rgba(201,162,74,.35);color:var(--gold2);padding:7px 10px;border-radius:5px;font-size:10px;font-weight:900;margin-bottom:3px}
+.package-benefits{min-height:44px;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.benefit-chip{font-size:10px;color:#ddd;background:#151515;border:1px solid #303030;padding:8px 10px;border-radius:5px}
+.package-copy .btn{align-self:flex-start;min-width:210px;position:relative;overflow:hidden}.package-copy .btn:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.25) 45%,transparent 70%);transform:translateX(-120%);transition:transform .65s ease}.package-copy .btn:hover:after{transform:translateX(120%)}
+.package-slide.active .package-number,.package-slide.active .package-kicker,.package-slide.active h3,.package-slide.active .tagline,.package-slide.active .package-options,.package-slide.active .package-price-row,.package-slide.active .package-benefits,.package-slide.active .btn{animation:packageIn .58s both}
+.package-slide.active .package-number{animation-delay:.02s}.package-slide.active .package-kicker{animation-delay:.05s}.package-slide.active h3{animation-delay:.09s}.package-slide.active .tagline{animation-delay:.13s}.package-slide.active .package-options{animation-delay:.17s}.package-slide.active .package-price-row{animation-delay:.21s}.package-slide.active .package-benefits{animation-delay:.25s}.package-slide.active .btn{animation-delay:.29s}
+@keyframes packageIn{from{opacity:0;transform:translateX(42px)}to{opacity:1;transform:none}}
+.slider-footer{display:flex;align-items:center;justify-content:space-between;margin-top:20px;gap:20px}.dots{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.package-dot{width:28px;height:4px;border:0;border-radius:99px;background:#333;cursor:pointer;padding:0;transition:width .3s ease,background .3s ease}.package-dot.active{width:50px;background:var(--gold)}
+.slide-count{display:flex;align-items:center;gap:9px;color:#777;font-size:11px;font-weight:900;letter-spacing:2px}.slide-count span:first-child{color:#fff}.count-line{width:42px;height:1px;background:#383838}.swipe-hint{margin-top:14px;color:#666;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+@media(max-width:980px){.package-slide{min-height:490px;padding:42px 38px 46px}.package-copy h3{font-size:clamp(34px,7vw,54px)}}
+@media(max-width:620px){.package-heading{align-items:flex-start}.package-heading h2{font-size:34px}.slider-controls{gap:7px}.slide-btn{width:43px;height:43px}.package-slider{border-radius:15px}.package-slide{padding:30px 20px 34px;min-height:510px}.package-copy h3{font-size:34px;letter-spacing:-1.5px}.package-copy .tagline{font-size:12px}.package-options{gap:5px}.term-pill{padding:8px 9px;font-size:10px}.package-price{font-size:46px}.slider-footer{align-items:flex-start;flex-direction:column-reverse}.terms-grid{grid-template-columns:1fr}.package-dot{width:20px}.package-dot.active{width:38px}.swipe-hint{display:block}}
+@media(min-width:621px){.swipe-hint{text-align:right}}
+@media(prefers-reduced-motion:reduce){.package-track,.package-slide,.package-slide.active>*{transition:none!important;animation:none!important}}
+</style></head><body><nav class="nav"><div class="container navin">
+<a class="brand" href="./index.html"><img class="logo" src="logo.png"><span>BODY TONE<small>FITNESS</small></span></a>
+<div class="links"><a href="./index.html">Home</a><a href="./membership.html">Membership</a><a href="./services.html">Services</a><a href="./trainers.html">Trainers</a><a href="./professionals.html">Professionals</a><a href="./about.html">About</a><a href="./contact.html">Contact</a><a href="./profile.html">Profile</a><button class="btn outline guest" onclick="openAuth('login')">Login</button><button class="btn gold guest" onclick="openAuth('signup')">Sign Up</button><button class="btn gold member hidden" onclick="location.href='profile.html'">My Profile</button><button class="btn outline member hidden" onclick="signOut()">Logout</button></div>
+<button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+<div class="mobile-menu" id="mobileMenu"><a href="./index.html">Home</a><a href="./membership.html">Membership</a><a href="./services.html">Services</a><a href="./blood-test.html">Book Blood Test</a><a href="./bmi.html">Book BMI Test</a><a href="./trainers.html">Trainers</a><a href="./professionals.html">Professionals</a><a href="./about.html">About</a><a href="./contact.html">Contact</a><a href="./profile.html">My Profile</a><button class="btn outline guest" onclick="openAuth('login')">Login</button><button class="btn gold guest" onclick="openAuth('signup')">Sign Up</button><button class="btn gold member hidden" onclick="location.href='profile.html'">My Profile</button><button class="btn outline member hidden" onclick="signOut()">Logout</button></div>
+</div></nav><main>
+<section class="pagehero package-hero">
+  <div class="container">
+    <div class="kicker">PERSONAL TRAINING</div>
+    <h1>Train at Your Level.</h1>
+    <p>Explore the official Body Tone Fitness personal-training packages. Swipe through the plans, compare terms, and choose the package that fits your training.</p>
+  </div>
+</section>
+
+<section class="package-section" id="packages">
+  <div class="container">
+    <div class="package-heading">
+      <div>
+        <div class="kicker">BTF PACKAGES</div>
+        <h2>Choose Your Experience.</h2>
+        <div class="goldline"></div>
+      </div>
+      <div class="slider-controls" aria-label="Package controls">
+        <button class="slide-btn" id="prevPackage" type="button" aria-label="Previous package">←</button>
+        <button class="slide-btn" id="nextPackage" type="button" aria-label="Next package">→</button>
+      </div>
+    </div>
+
+    <div class="package-slider" id="packageSlider" tabindex="0" aria-label="Personal training packages">
+      <div class="package-track" id="packageTrack"></div>
+    </div>
+
+    <div class="slider-footer">
+      <div class="dots" id="packageDots" aria-label="Choose package"></div>
+      <div class="slide-count"><span id="slideCurrent">01</span><span class="count-line"></span><span id="slideTotal">07</span></div>
+    </div>
+    <div class="swipe-hint" id="packageHint">Drag / swipe to browse packages · use arrows or dots</div>
+  </div>
+</section>
+
+<section class="terms-section">
+  <div class="container">
+    <div class="terms-title">
+      <div class="kicker">EVERY SESSION COUNTS</div>
+      <h2>Training Terms</h2>
+      <p>These terms apply across the personal-training packages shown above.</p>
+    </div>
+    <div class="terms-grid">
+      <div class="term-card"><span class="term-icon">01</span><h3>Be Regular</h3><p>Be regular for your daily session and follow the complete workout routine.</p></div>
+      <div class="term-card"><span class="term-icon">02</span><h3>Member Absence</h3><p>Classes will not be given for missed sessions.</p></div>
+      <div class="term-card"><span class="term-icon">03</span><h3>Respect Timing</h3><p>Be serious about your session timings. Late comers will not be entertained.</p></div>
+      <div class="term-card"><span class="term-icon">04</span><h3>60-Minute Session</h3><p>Timing will be 60 minutes including warmups and stretching.</p></div>
+    </div>
+  </div>
+</section>
+</main><footer class="footer"><div class="container"><div class="footgrid"><div><div class="brand"><img class="logo" src="logo.png"><span>BODY TONE<small>FITNESS</small></span></div><p>Train with purpose. Live stronger.</p></div><div><h4>Explore</h4><a href="./membership.html">Membership</a><a href="./services.html">Health Services</a><a href="./trainers.html">Trainers</a></div><div><h4>Support</h4><a href="./profile.html">My Profile</a><a href="./contact.html">Contact</a><a href="./about.html">FAQ</a></div><div><h4>Hours</h4><p>6:00 AM – 10:00 PM<br>Monday – Sunday</p></div></div><div class="copyright">© 2026 Body Tone Fitness. All rights reserved.</div></div></footer><div id="modal" class="modal hidden"><div id="modalContent" class="modalbox"></div></div><div id="toast" class="toast hidden"></div><script>
+const PACKAGE_DATA = [
+ {name:'Personal Training Premium',short:'Premium',tagline:'Achieve more. Get stronger. Live better.',plans:[
+  {term:'1M',sessions:26,actual:12000,offer:9999,benefits:['₹2,001 discount']},
+  {term:'3M',sessions:78,actual:32000,offer:23999,benefits:['₹8,001 discount']},
+  {term:'6M',sessions:156,actual:60000,offer:41999,benefits:['₹18,001 discount']},
+  {term:'12M',sessions:312,actual:120000,offer:80000,benefits:['₹40,000 discount']}
+ ]},
+ {name:'Personal Training Premium — Alternative Sessions',short:'Premium Alternative',tagline:'Flexible sessions. Powerful results.',plans:[
+  {term:'1M',sessions:12,actual:5500,offer:5500,benefits:['No discount']},
+  {term:'3M',sessions:36,actual:16000,offer:12999,benefits:['₹3,001 discount']},
+  {term:'6M',sessions:72,actual:34000,offer:25999,benefits:['₹8,001 discount']},
+  {term:'12M',sessions:144,actual:70000,offer:52999,benefits:['₹17,001 discount']}
+ ]},
+ {name:'Personal Training Super Premium',short:'Super Premium',tagline:'Alternative sessions for a premium training experience.',plans:[
+  {term:'1M',sessions:26,actual:13000,offer:10999,benefits:['₹2,001 discount']},
+  {term:'3M',sessions:78,actual:34000,offer:26999,benefits:['₹7,001 discount']},
+  {term:'6M',sessions:156,actual:66000,offer:49999,benefits:['₹16,001 discount','15 days extra','Diet plan']},
+  {term:'12M',sessions:312,actual:132000,offer:95666,benefits:['₹36,334 discount','1 month extra','Diet plan']}
+ ]},
+ {name:'Personal Training Super Premium — Alternative Sessions',short:'Super Premium Alternative',tagline:'Flexible premium sessions without compromising the experience.',plans:[
+  {term:'1M',sessions:12,actual:6000,offer:6000,benefits:['No discount']},
+  {term:'3M',sessions:36,actual:18000,offer:14999,benefits:['₹3,001 discount']},
+  {term:'6M',sessions:72,actual:36000,offer:27999,benefits:['₹8,001 discount']},
+  {term:'12M',sessions:144,actual:72000,offer:54999,benefits:['₹17,001 discount']}
+ ]},
+ {name:'Personal Training Star Trainer',short:'Star Trainer',tagline:'Train with expertise. Transform with results.',plans:[
+  {term:'1M',sessions:26,actual:14000,offer:14000,benefits:['Nil discount']},
+  {term:'3M',sessions:78,actual:42000,offer:40000,benefits:['₹2,000 discount']},
+  {term:'6M',sessions:156,actual:84000,offer:80000,benefits:['₹4,000 discount']},
+  {term:'12M',sessions:312,actual:168000,offer:130000,benefits:['₹49,999 discount','1 month extra']}
+ ]},
+ {name:'Personal Training Star Trainer — Alternative Sessions',short:'Star Trainer Alternative',tagline:'Expert guidance. Elite results. Flexible sessions.',plans:[
+  {term:'1M',sessions:12,actual:8999,offer:8999,benefits:['No discount']},
+  {term:'3M',sessions:36,actual:24000,offer:22000,benefits:['₹2,000 discount']},
+  {term:'6M',sessions:72,actual:50000,offer:42000,benefits:['₹8,000 discount']},
+  {term:'12M',sessions:144,actual:95000,offer:70000,benefits:['₹25,000 discount']}
+ ]},
+ {name:'Personal Training Celebrity Trainer',short:'Celebrity Trainer',tagline:'Train like a celebrity. Transform like a legend.',plans:[
+  {term:'1M',sessions:26,actual:18000,offer:18000,benefits:['Nil discount']},
+  {term:'3M',sessions:78,actual:54000,offer:43999,benefits:['₹10,001 discount','Free diet plan']},
+  {term:'6M',sessions:156,actual:108000,offer:87999,benefits:['₹20,001 discount','15 days class','Diet plan']},
+  {term:'12M',sessions:312,actual:216000,offer:166001,benefits:['₹49,999 discount','1 month extra','Diet plan']}
+ ]}
+];
+let packageIndex=0;
+let packageTerms=PACKAGE_DATA.map(()=>0);
+let packageTimer=null;
+let packageTouchX=0;
+let packageTouchY=0;
+function money(n){return '₹'+Number(n).toLocaleString('en-IN')}
+function renderPackages(){
+ const track=document.querySelector('#packageTrack'); if(!track)return;
+ track.innerHTML=PACKAGE_DATA.map((pkg,i)=>{
+   const p=pkg.plans[packageTerms[i]];
+   const discount=Math.max(0,p.actual-p.offer);
+   return `<article class="package-slide ${i===packageIndex?'active':''}" data-index="${i}">
+    <div class="package-number">${String(i+1).padStart(2,'0')} / ${String(PACKAGE_DATA.length).padStart(2,'0')}</div>
+    <div class="package-copy">
+      <div class="package-kicker">${pkg.short}</div>
+      <h3>${pkg.name}</h3>
+      <p class="tagline">${pkg.tagline}</p>
+      <div class="package-options">${pkg.plans.map((x,j)=>`<button type="button" class="term-pill ${j===packageTerms[i]?'active':''}" onclick="selectPackageTerm(${i},${j})">${x.term} · ${x.sessions} sessions</button>`).join('')}</div>
+      <div class="package-price-row"><div class="package-price">${money(p.offer)}<small> / package</small></div>${discount?`<div class="actual-price">${money(p.actual)}</div>`:''}<span class="discount-badge">${discount?money(discount)+' saved':'Offer price'}</span></div>
+      <div class="package-benefits">${p.benefits.map(b=>`<span class="benefit-chip">${b}</span>`).join('')}</div>
+      <button class="btn gold" type="button" onclick="choosePlan(${i},${packageTerms[i]})">Choose ${pkg.short}</button>
+    </div>
+   </article>`
+ }).join('');
+ track.style.transform=`translate3d(-${packageIndex*100}%,0,0)`;
+ updatePackageUI();
+}
+function updatePackageUI(){
+ document.querySelectorAll('.package-slide').forEach((el,i)=>el.classList.toggle('active',i===packageIndex));
+ document.querySelectorAll('.package-dot').forEach((el,i)=>{el.classList.toggle('active',i===packageIndex);el.setAttribute('aria-current',i===packageIndex?'true':'false')});
+ const c=document.querySelector('#slideCurrent');const t=document.querySelector('#slideTotal');if(c)c.textContent=String(packageIndex+1).padStart(2,'0');if(t)t.textContent=String(PACKAGE_DATA.length).padStart(2,'0');
+}
+function renderPackageDots(){
+ const dots=document.querySelector('#packageDots');if(!dots)return;
+ dots.innerHTML=PACKAGE_DATA.map((p,i)=>`<button type="button" class="package-dot ${i===packageIndex?'active':''}" onclick="goToPackage(${i})" aria-label="${p.name}" aria-current="${i===packageIndex?'true':'false'}"></button>`).join('');
+}
+function goToPackage(i,reset=true){packageIndex=(i+PACKAGE_DATA.length)%PACKAGE_DATA.length;const track=document.querySelector('#packageTrack');if(track)track.style.transform=`translate3d(-${packageIndex*100}%,0,0)`;updatePackageUI();if(reset)restartPackageAuto();}
+function nextPackage(reset=true){goToPackage(packageIndex+1,reset)}
+function prevPackage(reset=true){goToPackage(packageIndex-1,reset)}
+function selectPackageTerm(i,j){packageTerms[i]=j;renderPackages();restartPackageAuto()}
+function startPackageAuto(){clearInterval(packageTimer);packageTimer=setInterval(()=>nextPackage(),6000)}
+function restartPackageAuto(){startPackageAuto()}
+function initPackageSlider(){
+ renderPackageDots();renderPackages();
+ document.querySelector('#nextPackage')?.addEventListener('click',nextPackage);
+ document.querySelector('#prevPackage')?.addEventListener('click',prevPackage);
+ const slider=document.querySelector('#packageSlider'); const track=document.querySelector('#packageTrack'); if(!slider||!track)return;
+ slider.setAttribute('role','region');
+ slider.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();nextPackage()}if(e.key==='ArrowLeft'){e.preventDefault();prevPackage()}});
+ slider.addEventListener('mouseenter',()=>clearInterval(packageTimer));
+ slider.addEventListener('mouseleave',()=>{if(!isDragging)startPackageAuto()});
+ let startX=0,startY=0,dragX=0,isDragging=false,moved=false;
+ const endDrag=()=>{if(!isDragging)return;isDragging=false;slider.classList.remove('dragging');track.classList.remove('dragging');const dx=dragX-startX;if(Math.abs(dx)>55){dx<0?nextPackage(false):prevPackage(false)}else{track.style.transform=`translate3d(-${packageIndex*100}%,0,0)`}startPackageAuto()};
+ slider.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;startX=e.clientX;startY=e.clientY;dragX=startX;isDragging=true;moved=false;slider.classList.add('dragging');track.classList.add('dragging');clearInterval(packageTimer);slider.setPointerCapture?.(e.pointerId)});
+ slider.addEventListener('pointermove',e=>{if(!isDragging)return;dragX=e.clientX;const dx=dragX-startX,dy=e.clientY-startY;if(Math.abs(dx)>8&&Math.abs(dx)>Math.abs(dy))moved=true;if(moved){e.preventDefault();const pct=(dx/window.innerWidth)*100;track.style.transform=`translate3d(calc(-${packageIndex*100}% + ${pct}px),0,0)`}});
+ slider.addEventListener('pointerup',endDrag);slider.addEventListener('pointercancel',endDrag);slider.addEventListener('lostpointercapture',endDrag);
+ slider.addEventListener('wheel',e=>{const horizontal=Math.abs(e.deltaX)>Math.abs(e.deltaY);const shifted=e.shiftKey&&Math.abs(e.deltaY)>0;if(horizontal||shifted){e.preventDefault();(e.deltaX>0||e.deltaY>0)?nextPackage(false):prevPackage(false);clearInterval(packageTimer);setTimeout(startPackageAuto,900)}},{passive:false});
+ startPackageAuto();
+}
+document.addEventListener('DOMContentLoaded',initPackageSlider);
+
+const SUPABASE_URL = window.BTF_CONFIG?.supabaseUrl || "";
+const SUPABASE_ANON_KEY = window.BTF_CONFIG?.supabaseAnonKey || "";
+let sb = null;
+function configError(){
+ const c=window.BTF_CONFIG||{};
+ if(!c.supabaseUrl || c.supabaseUrl.includes("YOUR_PROJECT") || !c.supabaseAnonKey || c.supabaseAnonKey.includes("YOUR_"))
+   return "Supabase is not configured yet. Add your Project URL and Publishable/anon key to config.js.";
+ if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(c.supabaseUrl))
+   return "The Supabase Project URL in config.js is invalid.";
+ return "";
+}
+async function initSupabase(){
+ const ce=configError(); if(ce){window.BTF_SETUP_ERROR=ce; return false;}
+ if(!SUPABASE_URL || !SUPABASE_ANON_KEY) return false;
+ if(!window.supabase) return false;
+ sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+ sb.auth.onAuthStateChange(()=>updateAuthUI());
+ return true;
+}
+function toast(m){const t=document.querySelector('#toast');t.textContent=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2500)}
+function toggleMenu(){document.querySelector('#mobileMenu')?.classList.toggle('open')}
+function closeMenu(){document.querySelector('#mobileMenu')?.classList.remove('open')}
+async function currentUser(){if(!sb)return null;const {data:{user}}=await sb.auth.getUser();return user}
+async function updateAuthUI(){
+ const u=await currentUser(); const logged=!!u;
+ document.querySelectorAll('.guest').forEach(x=>x.classList.toggle('hidden',logged));
+ document.querySelectorAll('.member').forEach(x=>x.classList.toggle('hidden',!logged));
+ if(document.querySelector('#memberName')&&u)document.querySelector('#memberName').textContent=u.user_metadata?.full_name||u.email;
+}
+function openAuth(mode){
+ if(!sb){showConfigNotice();return}
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">${mode==='login'?'MEMBER LOGIN':'JOIN BODY TONE'}</div><h2>${mode==='login'?'Welcome back.':'Create your member account.'}</h2><form class="form" onsubmit="submitAuth(event,'${mode}')">${mode==='signup'?'<div class="field"><label>FULL NAME</label><input id="authName" required></div>':''}<div class="field"><label>EMAIL</label><input id="authEmail" type="email" required></div><div class="field"><label>PASSWORD</label><input id="authPassword" type="password" minlength="6" required></div><button class="btn gold">${mode==='login'?'Sign In':'Create Account'}</button></form><p class="muted" style="font-size:11px">Your account is stored in the secure authentication system, not in the browser.</p>`)
+}
+async function submitAuth(e,mode){
+ e.preventDefault(); if(!sb)return;
+ const email=document.querySelector('#authEmail').value.trim(),password=document.querySelector('#authPassword').value;
+ let r;
+ if(mode==='signup'){const name=document.querySelector('#authName').value.trim();r=await sb.auth.signUp({email,password,options:{data:{full_name:name}}})}
+ else r=await sb.auth.signInWithPassword({email,password});
+ if(r.error){
+ const msg=(r.error.message||"").toLowerCase().includes("fetch")
+  ? "Could not reach Supabase. Check config.js and Supabase Auth URL settings."
+  : r.error.message;
+ toast(msg); return
+ }
+ closeModal();await updateAuthUI();toast(mode==='signup'?'Account created. Check email if confirmation is enabled.':'Signed in successfully.');setTimeout(()=>location.href='profile.html',500)
+}
+async function signOut(){if(sb)await sb.auth.signOut();closeMenu();toast('Signed out');setTimeout(()=>location.href='index.html',300)}
+function showConfigNotice(){
+ const msg=window.BTF_SETUP_ERROR||"Supabase connection is unavailable.";
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">ACCOUNT CONNECTION</div><h2>Supabase setup needed</h2><p class="muted">${msg}</p><p class="muted">After changing config.js, redeploy the complete folder to Netlify.</p>`)
+}
+function modal(h){document.querySelector('#modalContent').innerHTML=h;document.querySelector('#modal').classList.remove('hidden')}
+function closeModal(){document.querySelector('#modal').classList.add('hidden')}
+
+async function choosePlan(packageIdx,termIdx){
+ const u=await currentUser();
+ if(!u){openAuth('login');return}
+ const pkg=PACKAGE_DATA[packageIdx], p=pkg.plans[termIdx];
+ const params=new URLSearchParams({
+   plan:pkg.name,
+   short:pkg.short,
+   tagline:pkg.tagline,
+   term:p.term,
+   sessions:String(p.sessions),
+   actual:String(p.actual),
+   price:String(p.offer),
+   benefits:p.benefits.join(' • ')
+ });
+ window.location.href=`payment.html?${params.toString()}`;
+}
+function slots(interval){let a=[];[[6,10],[17,21]].forEach(r=>{for(let h=r[0];h<r[1];h++)for(let m=0;m<60;m+=interval)a.push(String(h).padStart(2,'0')+':'+String(m).padStart(2,'0'))});return a}
+function makeSlots(interval){const el=document.querySelector('#slots');if(el)el.innerHTML=slots(interval).map(s=>`<button type="button" class="slot" onclick="pickSlot(this,'${s}')">${s}</button>`).join('')}
+function pickSlot(el,v){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');document.querySelector('#slot').value=v}
+async function submitBooking(e,type){
+ e.preventDefault();const u=await currentUser();if(!u){openAuth('login');return}
+ const slot=document.querySelector('#slot').value;if(!slot){toast('Choose a time slot');return}
+ const date=document.querySelector('#date').value, locationValue=document.querySelector('#location')?.value||'At Gym', address=document.querySelector('#address')?.value||null;
+ const {error}=await sb.from('test_bookings').insert({user_id:u.id,test_type:type,booking_date:date,booking_time:slot,location:locationValue,address:address,status:'confirmed'});
+ if(error){toast(error.message);return}
+ if(type==='bmi'){
+   const d=new Date(date+'T12:00:00');d.setDate(d.getDate()+30);
+   await sb.from('test_reminders').upsert({user_id:u.id,booking_id:null,reminder_type:'BMI_RETEST',due_date:d.toISOString().slice(0,10),status:'pending'},{onConflict:'user_id,reminder_type'})
+ }
+ toast(type==='bmi'?'BMI test booked. Retest reminder saved.':'Blood test booked.');
+ setTimeout(()=>location.href='profile.html',700)
+}
+async function loadProfile(){
+ const u=await currentUser();if(!u){openAuth('login');return}
+ const name=u.user_metadata?.full_name||u.email; if(document.querySelector('#memberName'))document.querySelector('#memberName').textContent=name;
+ const {data:profile}=await sb.from('profiles').select('*').eq('id',u.id).maybeSingle();
+ const {data:memberships}=await sb.from('memberships').select('*').eq('user_id',u.id).order('created_at',{ascending:false});
+ const {data:bookings}=await sb.from('test_bookings').select('*').eq('user_id',u.id).order('booking_date',{ascending:false}).order('booking_time',{ascending:false});
+ const {data:rem}=await sb.from('test_reminders').select('*').eq('user_id',u.id).eq('status','pending').order('due_date',{ascending:true}).limit(1);
+ const {data:reports}=await sb.from('reports').select('*').eq('user_id',u.id).order('uploaded_at',{ascending:false});
+ document.querySelector('#membership').textContent=memberships?.[0]?.plan_name||'No active membership';
+ document.querySelector('#membershipStatus').textContent=memberships?.[0]?.status||'—';
+ document.querySelector('#nextTest').textContent=rem?.[0]?.due_date?new Date(rem[0].due_date).toLocaleDateString():'Not scheduled';
+ const b=bookings?.[0];document.querySelector('#recentBooking').textContent=b?`${b.test_type==='bmi'?'BMI Test':'Blood Test'} — ${b.booking_date} at ${b.booking_time}`:'No bookings';
+ document.querySelector('#bookingHistory').innerHTML=(bookings||[]).map(b=>`<div class="report"><div><b>${b.test_type==='bmi'?'BMI Test':'Blood Test'}</b><div class="muted">${b.booking_date} • ${b.booking_time} • ${b.location}</div></div><span class="pill">${b.status}</span></div>`).join('')||'<p class="muted">No tests booked yet.</p>';
+ document.querySelector('#reportList').innerHTML=(reports||[]).map(r=>`<div class="report"><div><b>${r.title||'Blood Test Report'}</b><div class="muted">${new Date(r.uploaded_at).toLocaleDateString()}</div></div><button class="btn outline" onclick="viewReport('${r.id}')">View</button></div>`).join('')||'<p class="muted">No reports uploaded yet.</p>';
+}
+async function viewReport(id){
+ const {data,error}=await sb.from('reports').select('storage_path').eq('id',id).single();if(error){toast(error.message);return}
+ const {data:url}=await sb.storage.from('medical-reports').createSignedUrl(data.storage_path,120);if(url?.signedUrl)window.open(url.signedUrl,'_blank');else toast('Could not open report');
+}
+async function saveProfile(e){
+ e.preventDefault();const u=await currentUser();if(!u)return;
+ const name=document.querySelector('#editName').value.trim(),phone=document.querySelector('#editPhone').value.trim();
+ const {error}=await sb.from('profiles').upsert({id:u.id,full_name:name,phone:phone});
+ if(error){toast(error.message);return}
+ await sb.auth.updateUser({data:{full_name:name}});toast('Profile updated');loadProfile()
+}
+async function adminUpload(){
+ const u=await currentUser();if(!u){openAuth('login');return}
+ const {data:p}=await sb.from('profiles').select('role').eq('id',u.id).single();
+ if(p?.role!=='admin'){toast('Admin access required');return}
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">ADMIN</div><h2>Upload Member Report</h2><form class="form" onsubmit="uploadReport(event)"><div class="field"><label>MEMBER USER ID</label><input id="reportUser" required placeholder="UUID from member profile"></div><div class="field"><label>REPORT TITLE</label><input id="reportTitle" value="Blood Test Report" required></div><div class="field"><label>PDF REPORT</label><input id="reportFile" type="file" accept=".pdf" required></div><button class="btn red">Upload Securely</button></form>`)
+}
+async function uploadReport(e){
+ e.preventDefault();const u=await currentUser();const {data:p}=await sb.from('profiles').select('role').eq('id',u.id).single();if(p?.role!=='admin'){toast('Admin access required');return}
+ const member=document.querySelector('#reportUser').value.trim(),file=document.querySelector('#reportFile').files[0];if(!file)return;
+ const path=`${member}/${crypto.randomUUID()}-${file.name.replace(/[^a-zA-Z0-9._-]/g,'_')}`;
+ const up=await sb.storage.from('medical-reports').upload(path,file,{contentType:'application/pdf',upsert:false});if(up.error){toast(up.error.message);return}
+ const ins=await sb.from('reports').insert({user_id:member,title:document.querySelector('#reportTitle').value,storage_path:path,uploaded_by:u.id});if(ins.error){await sb.storage.from('medical-reports').remove([path]);toast(ins.error.message);return}
+ closeModal();toast('Private report uploaded to the member profile')
+}
+initSupabase().then(()=>{updateAuthUI();});</script></body></html>
