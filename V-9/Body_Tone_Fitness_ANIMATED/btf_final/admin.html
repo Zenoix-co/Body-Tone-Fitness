@@ -1,0 +1,261 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Dashboard | Body Tone Fitness</title><link rel="icon" href="./favicon.png"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><style>
+:root{--black:#070707;--black2:#101010;--white:#f7f7f5;--gold:#c9a24a;--red:#b5111a;--muted:#92928e;--line:#292929;--green:#7fe09a}*{box-sizing:border-box}body{margin:0;background:var(--black);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.container{width:min(1280px,92%);margin:auto}.nav{position:sticky;top:0;z-index:50;background:rgba(7,7,7,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.navin{min-height:74px;display:flex;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:2px;white-space:nowrap}.logo{width:45px;height:45px;object-fit:contain}.brand span{font-size:19px}.navright{margin-left:auto;display:flex;align-items:center;gap:10px}.btn{border:1px solid #444;border-radius:6px;padding:10px 14px;background:transparent;color:#fff;font-weight:800;font-size:12px}.gold{background:var(--gold);border-color:var(--gold);color:#090909}.bell{position:relative;width:42px;height:40px}.badge{position:absolute;right:-4px;top:-5px;min-width:18px;height:18px;padding:0 5px;border-radius:99px;background:var(--red);color:#fff;font-size:10px;display:grid;place-items:center}.hero{padding:54px 0 35px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 80% 20%,rgba(201,162,74,.12),transparent 30%)}.kicker{font-size:10px;letter-spacing:4px;color:var(--gold);font-weight:900}.hero h1{font-size:clamp(42px,6vw,70px);letter-spacing:-2px;margin:10px 0}.hero p{color:var(--muted);max-width:700px;line-height:1.7}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:25px 0}.stat,.panel{background:linear-gradient(145deg,#111,#0b0b0b);border:1px solid var(--line);border-radius:10px}.stat{padding:20px}.stat b{font-size:30px;color:var(--gold);display:block}.stat span{font-size:10px;color:#888;letter-spacing:1px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tab{border:1px solid #333;background:#0c0c0c;color:#aaa;border-radius:6px;padding:10px 14px;font-weight:800;font-size:11px}.tab.active{background:var(--gold);color:#080808;border-color:var(--gold)}.panel{padding:20px;margin-bottom:18px}.panel h2{margin:0 0 6px;font-size:22px}.muted{color:var(--muted)}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:760px}.table th,.table td{text-align:left;padding:12px 10px;border-bottom:1px solid #242424;font-size:12px;vertical-align:top}.table th{color:#aaa;font-size:10px;letter-spacing:1px}.pill{display:inline-block;padding:5px 8px;border-radius:99px;background:#18361e;color:var(--green);font-size:9px;font-weight:900}.pill.red{background:#341114;color:#ff9b9b}.notification{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #242424}.notification:last-child{border-bottom:0}.dot{width:9px;height:9px;border-radius:50%;background:var(--gold);margin-top:5px;flex:none}.notification.unread .title{font-weight:900;color:#fff}.notification .title{font-size:13px}.notification .body{font-size:11px;color:#888;margin-top:4px}.notification time{font-size:9px;color:#666;white-space:nowrap;margin-left:auto}.empty{padding:35px;text-align:center;color:#777}.toast{position:fixed;right:20px;bottom:20px;z-index:100;background:#fff;color:#080808;padding:14px 18px;border-radius:7px;font-size:12px;font-weight:900;box-shadow:0 12px 40px #000}.hidden{display:none!important}@media(max-width:800px){.navin{min-height:64px}.brand span{font-size:15px;letter-spacing:1px}.logo{width:38px;height:38px}.navright .btn:not(.bell){display:none}.stats{grid-template-columns:1fr 1fr}.hero{padding-top:38px}.table{min-width:680px}}
+</style><style id="btf-motion-css">
+/* BTF motion layer */
+:root{--motion-red:#e01622}
+body{overflow-x:hidden}
+@media (prefers-reduced-motion:no-preference){
+  .nav{animation:navDrop .7s cubic-bezier(.2,.8,.2,1) both}
+  .hero>*{animation:heroIn .9s cubic-bezier(.2,.8,.2,1) both}
+  .hero h1{animation-delay:.08s}.hero p{animation-delay:.16s}.hero .actions{animation-delay:.24s}
+  .card,.person,.page-photo-split,.stats,.gallery-item,.testimonial-card{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1),border-color .3s ease,box-shadow .3s ease}
+  .btf-reveal.is-visible{opacity:1;transform:none}
+  .card:hover,.person:hover{transform:translateY(-8px);border-color:rgba(224,22,34,.65);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+  .person img{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+  .person:hover img{transform:scale(1.035)}
+  .btn{transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(181,17,26,.22);filter:brightness(1.08)}
+  .brand .logo{animation:logoFloat 4s ease-in-out infinite}
+  .goldline{animation:linePulse 2.4s ease-in-out infinite}
+}
+@keyframes navDrop{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes logoFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(1deg)}}
+@keyframes linePulse{0%,100%{transform:scaleX(1);opacity:.7}50%{transform:scaleX(1.45);opacity:1}}
+.btf-page-noise{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.035;background-image:radial-gradient(#fff .5px,transparent .5px);background-size:5px 5px;mix-blend-mode:screen}
+/* Trainer cinematic section */
+.trainer-stage{position:relative;overflow:hidden;padding:95px 0;background:#050505;border-top:1px solid #242424;border-bottom:1px solid #242424}
+.trainer-stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25;filter:contrast(1.08) saturate(.75);pointer-events:none}
+.trainer-stage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.96),rgba(5,5,5,.68),rgba(5,5,5,.9));pointer-events:none}
+.trainer-stage .container{position:relative;z-index:2}
+.trainer-stage h2{font-size:clamp(48px,7vw,92px);line-height:.9;letter-spacing:-3px;margin:0 0 18px;max-width:820px}.trainer-stage h2 span{color:var(--motion-red)}
+.trainer-stage p{max-width:640px;color:#b8b8b8;line-height:1.8}
+.trainer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.person{padding:0;overflow:hidden;background:linear-gradient(145deg,#121212,#090909);border-radius:16px}
+.person img{display:block;width:100%;height:520px;object-fit:cover;object-position:center top;border-radius:0;filter:none}
+.person .trainer-copy{padding:26px 28px 30px}.person h3{font-size:28px;margin:0 0 8px}.person h3 strong{font-weight:900;color:#fff}.person .special{color:var(--motion-red);letter-spacing:1px}.person p{color:#a8a8a8;font-size:13px;line-height:1.8;margin-top:10px}
+.trainer-bg-badge{display:inline-flex;padding:7px 11px;border:1px solid rgba(224,22,34,.5);color:#fff;font-size:9px;font-weight:900;letter-spacing:2px;margin-bottom:18px;background:rgba(224,22,34,.08)}
+@media(max-width:900px){.trainer-grid{grid-template-columns:1fr}.person img{height:560px}}
+@media(max-width:560px){.person img{height:460px}.trainer-stage{padding:72px 0}.trainer-stage h2{letter-spacing:-2px}}
+</style></head><body>
+<nav class="nav"><div class="container navin"><a class="brand" href="index.html"><img class="logo" src="./logo.png"><span>BODY TONE FITNESS</span></a><div class="navright"><button class="btn bell" id="notifyBtn" title="Notifications">🔔<span id="badge" class="badge hidden">0</span></button><a class="btn" href="index.html">Website</a><button class="btn gold" onclick="logout()">Logout</button></div></div></nav>
+<header class="hero"><div class="container"><div class="kicker">PRIVATE ADMIN AREA</div><h1>Operations Dashboard.</h1><p>Live bookings, membership requests, contact messages and persistent notifications in one place.</p><div class="stats"><div class="stat"><b id="bookingCount">—</b><span>TEST BOOKINGS</span></div><div class="stat"><b id="membershipCount">—</b><span>MEMBERSHIP REQUESTS</span></div><div class="stat"><b id="messageCount">—</b><span>CONTACT MESSAGES</span></div><div class="stat"><b id="unreadCount">—</b><span>NEW NOTIFICATIONS</span></div></div></div></header>
+<main class="section"><div class="container"><div class="tabs"><button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="bookings">Test Bookings</button><button class="tab" data-tab="memberships">Memberships</button><button class="tab" data-tab="messages">Messages</button><button class="tab" data-tab="notifications">Notifications</button></div>
+<section id="overview" class="tab-panel"><div class="panel"><h2>Recent activity</h2><p class="muted">New activity appears here automatically while this dashboard is open.</p><div id="recent"></div></div></section>
+<section id="bookings" class="tab-panel hidden"><div class="panel"><h2>Test Bookings</h2><p class="muted">Blood Test and BMI Test bookings, including cancellations.</p><div class="table-wrap"><table class="table"><thead><tr><th>DATE / TIME</th><th>TYPE</th><th>MEMBER</th><th>PHONE</th><th>LOCATION</th><th>STATUS</th></tr></thead><tbody id="bookingsTable"></tbody></table></div></div></section>
+<section id="memberships" class="tab-panel hidden"><div class="panel"><h2>Membership Requests</h2><p class="muted">Requests from the membership page. A verified payment will create a membership record when a payment gateway is connected.</p><div class="table-wrap"><table class="table"><thead><tr><th>DATE</th><th>MEMBER</th><th>CONTACT</th><th>PLAN</th><th>TERM</th><th>PRICE</th><th>STATUS</th></tr></thead><tbody id="membershipsTable"></tbody></table></div></div></section>
+<section id="messages" class="tab-panel hidden"><div class="panel"><h2>Contact Messages</h2><p class="muted">Messages submitted through the website contact form.</p><div class="table-wrap"><table class="table"><thead><tr><th>DATE</th><th>NAME</th><th>PHONE</th><th>MESSAGE</th><th>STATUS</th></tr></thead><tbody id="messagesTable"></tbody></table></div></div></section>
+<section id="notifications" class="tab-panel hidden"><div class="panel"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><div><h2>Notifications</h2><p class="muted">Realtime events from the site.</p></div><button class="btn outline" onclick="markAllRead()">Mark all read</button></div><div id="notificationsList"></div></div></section>
+</div>
+<section class="admin-section" id="reportManagement">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">REPORTS</p>
+      <h2>Test Reports</h2>
+      <p>Upload a PDF report for a member, or permanently delete an existing report.</p>
+    </div>
+    <span class="admin-badge">ADMIN ONLY</span>
+  </div>
+
+  <form id="reportUploadForm" class="admin-form">
+    <label>Member
+      <select id="reportMember" required>
+        <option value="">Select member</option>
+      </select>
+    </label>
+    <label>Report type
+      <select id="reportType" required>
+        <option value="blood">Blood Test</option>
+        <option value="bmi">BMI Test</option>
+      </select>
+    </label>
+    <label>Report file
+      <input id="reportFile" type="file" accept="application/pdf,image/*" required>
+    </label>
+    <button type="submit" class="button">Upload Report ↗</button>
+    <p id="reportUploadStatus" class="form-status" aria-live="polite"></p>
+  </form>
+
+  <div class="table-wrap">
+    <table id="reportsTable">
+      <thead>
+        <tr>
+          <th>Member</th><th>Type</th><th>Uploaded</th><th>Report</th><th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+</main><div id="toast" class="toast hidden"></div>
+<script>
+const SUPABASE_URL=window.BTF_CONFIG?.supabaseUrl||'';const SUPABASE_ANON_KEY=window.BTF_CONFIG?.supabaseAnonKey||'';let sb=null;let current=null;let profiles={};let notificationRows=[];
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.remove('hidden');clearTimeout(window._toast);window._toast=setTimeout(()=>e.classList.add('hidden'),3500)}
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function dt(v){return v?new Date(v).toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'}):'—'}
+async function getUser(){const {data,error}=await sb.auth.getUser();if(error)throw error;return data.user}
+async function verifyAdmin(){current=await getUser();if(!current){location.href='index.html';return false}const {data,error}=await sb.from('profiles').select('role,full_name,phone').eq('id',current.id).single();if(error||data?.role!=='admin'){alert('Admin access required.');location.href='index.html';return false}return true}
+async function loadProfiles(){const {data,error}=await sb.from('profiles').select('id,full_name,phone');if(!error)(data||[]).forEach(p=>profiles[p.id]=p)}
+function memberName(id){return profiles[id]?.full_name||'Member'}function memberPhone(id){return profiles[id]?.phone||'—'}
+async function loadAll(){
+ const [b,m,c,n]=await Promise.all([
+  sb.from('test_bookings').select('*').order('booking_date',{ascending:false}).order('booking_time',{ascending:false}).limit(200),
+  sb.from('membership_requests').select('*').order('created_at',{ascending:false}).limit(200),
+  sb.from('contact_messages').select('*').order('created_at',{ascending:false}).limit(200),
+  sb.from('admin_notifications').select('*').order('created_at',{ascending:false}).limit(100)
+ ]);
+ if(b.error)console.error(b.error);if(m.error)console.error(m.error);if(c.error)console.error(c.error);if(n.error)console.error(n.error);
+ window.bookings=b.data||[];window.memberships=m.data||[];window.messages=c.data||[];notificationRows=n.data||[];
+ render();
+}
+function render(){
+ document.getElementById('bookingCount').textContent=window.bookings.length;document.getElementById('membershipCount').textContent=window.memberships.length;document.getElementById('messageCount').textContent=window.messages.length;const unread=notificationRows.filter(x=>!x.read_at).length;document.getElementById('unreadCount').textContent=unread;document.getElementById('badge').textContent=unread;document.getElementById('badge').classList.toggle('hidden',!unread);
+ document.getElementById('bookingsTable').innerHTML=window.bookings.map(x=>`<tr><td>${esc(x.booking_date)}<br>${esc(x.booking_time)}</td><td>${esc(x.test_type==='bmi'?'BMI Test':'Blood Test')}</td><td>${esc(memberName(x.user_id))}</td><td>${esc(memberPhone(x.user_id))}</td><td>${esc(x.location)}${x.address?'<br><span class="muted">'+esc(x.address)+'</span>':''}</td><td><span class="pill ${x.status==='cancelled'?'red':''}">${esc(x.status)}</span></td></tr>`).join('')||'<tr><td colspan="6" class="empty">No bookings yet.</td></tr>';
+ document.getElementById('membershipsTable').innerHTML=window.memberships.map(x=>`<tr><td>${esc(dt(x.created_at))}</td><td>${esc(x.name)}</td><td>${esc(x.phone||x.email||'—')}</td><td>${esc(x.plan_name)}</td><td>${esc(x.term||'—')}</td><td>${x.price!=null?'₹'+Number(x.price).toLocaleString('en-IN'):'—'}</td><td><span class="pill">${esc(x.status)}</span></td></tr>`).join('')||'<tr><td colspan="7" class="empty">No membership requests yet.</td></tr>';
+ document.getElementById('messagesTable').innerHTML=window.messages.map(x=>`<tr><td>${esc(dt(x.created_at))}</td><td>${esc(x.name)}</td><td>${esc(x.phone)}</td><td>${esc(x.message)}</td><td><span class="pill">${esc(x.status)}</span></td></tr>`).join('')||'<tr><td colspan="5" class="empty">No messages yet.</td></tr>';
+ document.getElementById('notificationsList').innerHTML=notificationRows.map(x=>`<div class="notification ${x.read_at?'':'unread'}"><span class="dot"></span><div><div class="title">${esc(x.title)}</div><div class="body">${esc(x.body)}</div></div><time>${esc(dt(x.created_at))}</time></div>`).join('')||'<div class="empty">No notifications.</div>';
+ const recent=[...notificationRows].slice(0,8);document.getElementById('recent').innerHTML=recent.map(x=>`<div class="notification ${x.read_at?'':'unread'}"><span class="dot"></span><div><div class="title">${esc(x.title)}</div><div class="body">${esc(x.body)}</div></div><time>${esc(dt(x.created_at))}</time></div>`).join('')||'<div class="empty">No activity yet.</div>';
+}
+function notifyUser(n){toast(n.title+' — '+n.body);if('Notification' in window&&Notification.permission==='granted'&&document.visibilityState!=='visible')new Notification('Body Tone Fitness — '+n.title,{body:n.body});if(navigator.vibrate)navigator.vibrate([80,50,80])}
+async function addNotification(row){notificationRows.unshift(row);notificationRows=notificationRows.slice(0,100);render();notifyUser(row)}
+async function markAllRead(){const unread=notificationRows.filter(x=>!x.read_at);if(!unread.length)return;const now=new Date().toISOString();const {error}=await sb.from('admin_notifications').update({read_at:now}).in('id',unread.map(x=>x.id));if(error){toast(error.message);return}notificationRows.forEach(x=>{if(!x.read_at)x.read_at=now});render();toast('Notifications marked as read')}
+function setupRealtime(){
+ ['test_bookings','membership_requests','contact_messages','memberships','admin_notifications'].forEach(table=>{
+   sb.channel('admin-'+table).on('postgres_changes',{event:'INSERT',schema:'public',table},payload=>{
+     const n=payload.new;
+     if(table==='admin_notifications'){addNotification(n);return}
+     loadAll();
+   }).subscribe();
+ });
+}
+async function logout(){await sb.auth.signOut();location.href='index.html'}
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===btn));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.toggle('hidden',x.id!==btn.dataset.tab))}));
+document.getElementById('notifyBtn').addEventListener('click',async()=>{if('Notification' in window){try{const p=await Notification.requestPermission();toast(p==='granted'?'Browser notifications enabled.':'Browser notifications not enabled.')}catch(e){}}document.querySelector('[data-tab="notifications"]').click()});
+(async()=>{try{if(!SUPABASE_URL||!SUPABASE_ANON_KEY)throw new Error('Supabase is not configured.');sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});if(!await verifyAdmin())return;await loadProfiles();await loadAll();setupRealtime();if('Notification' in window&&Notification.permission==='default')toast('Click the bell to enable browser notifications.')}catch(e){console.error(e);alert(e.message||'Could not load the admin dashboard.')}})();
+</script>
+<script>
+(() => {
+  const SUPABASE_URL = window.SUPABASE_URL || window.supabaseUrl;
+  const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || window.supabaseAnonKey;
+  const ADMIN_EMAIL = "zeonixco@gmail.com";
+
+  // This UI is only a convenience layer. The Supabase RLS/storage policies
+  // remain the real security boundary.
+  async function getClient() {
+    if (window.supabaseClient) return window.supabaseClient;
+    if (!window.supabase || !SUPABASE_URL || !SUPABASE_ANON_KEY) return null;
+    window.supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    return window.supabaseClient;
+  }
+
+  async function requireAdmin() {
+    const sb = await getClient();
+    if (!sb) return null;
+    const { data:{user} } = await sb.auth.getUser();
+    if (!user || (user.email || "").toLowerCase() !== ADMIN_EMAIL) {
+      document.body.innerHTML = '<main style="padding:40px;font-family:system-ui"><h1>Access denied</h1><p>This area is for the authorized admin only.</p></main>';
+      return null;
+    }
+    return sb;
+  }
+
+  async function loadMembers(sb) {
+    const select=document.getElementById("reportMember");
+    if(!select) return;
+    const {data,error}=await sb.from("profiles").select("id,full_name,email").order("full_name");
+    if(error) return;
+    select.innerHTML='<option value="">Select member</option>';
+    (data||[]).filter(x => (x.email||"").toLowerCase() !== ADMIN_EMAIL).forEach(x=>{
+      const o=document.createElement("option");
+      o.value=x.id;
+      o.textContent=x.full_name || x.email || x.id;
+      select.appendChild(o);
+    });
+  }
+
+  async function loadReports(sb) {
+    const tbody=document.querySelector("#reportsTable tbody");
+    if(!tbody) return;
+    const {data,error}=await sb.from("test_reports")
+      .select("id,user_id,report_type,file_name,file_url,created_at,profiles(full_name,email)")
+      .order("created_at",{ascending:false});
+    if(error){ tbody.innerHTML='<tr><td colspan="5">Unable to load reports.</td></tr>'; return; }
+    tbody.innerHTML="";
+    (data||[]).forEach(r=>{
+      const tr=document.createElement("tr");
+      const member=(r.profiles?.full_name || r.profiles?.email || r.user_id || "Unknown");
+      tr.innerHTML=`
+        <td>${escapeHtml(member)}</td>
+        <td>${escapeHtml(r.report_type || "")}</td>
+        <td>${new Date(r.created_at).toLocaleString()}</td>
+        <td><a href="${escapeAttr(r.file_url)}" target="_blank" rel="noopener">Open</a></td>
+        <td><button type="button" class="secondary delete-report" data-id="${escapeAttr(r.id)}" data-url="${escapeAttr(r.file_url)}">Delete</button></td>`;
+      tbody.appendChild(tr);
+    });
+    tbody.querySelectorAll(".delete-report").forEach(btn=>{
+      btn.addEventListener("click",()=>deleteReport(sb,btn.dataset.id,btn.dataset.url));
+    });
+  }
+
+  async function uploadReport(sb,e) {
+    e.preventDefault();
+    const member=document.getElementById("reportMember").value;
+    const type=document.getElementById("reportType").value;
+    const file=document.getElementById("reportFile").files[0];
+    const status=document.getElementById("reportUploadStatus");
+    if(!member || !file){ status.textContent="Select a member and report file."; return; }
+    status.textContent="Uploading…";
+
+    const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+    const path=`${member}/${Date.now()}-${safeName}`;
+    const {error:upErr}=await sb.storage.from("test-reports").upload(path,file,{upsert:false});
+    if(upErr){ status.textContent=upErr.message; return; }
+
+    const {data:pub}=sb.storage.from("test-reports").getPublicUrl(path);
+    const {error:dbErr}=await sb.from("test_reports").insert({
+      user_id:member, report_type:type, file_name:file.name,
+      file_path:path, file_url:pub.publicUrl
+    });
+    if(dbErr){
+      await sb.storage.from("test-reports").remove([path]);
+      status.textContent=dbErr.message;
+      return;
+    }
+    status.textContent="Report uploaded.";
+    e.target.reset();
+    await loadReports(sb);
+  }
+
+  async function deleteReport(sb,id,url) {
+    if(!confirm("Delete this report permanently?")) return;
+    const {data:row}=await sb.from("test_reports").select("file_path").eq("id",id).single();
+    if(row?.file_path) await sb.storage.from("test-reports").remove([row.file_path]);
+    const {error}=await sb.from("test_reports").delete().eq("id",id);
+    if(error){ alert(error.message); return; }
+    await loadReports(sb);
+  }
+
+  function escapeHtml(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+  function escapeAttr(v){return escapeHtml(v);}
+
+  document.addEventListener("DOMContentLoaded", async()=>{
+    const sb=await requireAdmin();
+    if(!sb) return;
+    await loadMembers(sb);
+    await loadReports(sb);
+    document.getElementById("reportUploadForm")?.addEventListener("submit",e=>uploadReport(sb,e));
+  });
+})();
+</script>
+
+<script id="btf-motion-script">
+(function(){
+ const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const targets=document.querySelectorAll('.card,.person,.page-photo-split,.stats,.gallery-item,.testimonial-card');
+ targets.forEach(el=>el.classList.add('btf-reveal'));
+ if(reduce){targets.forEach(el=>el.classList.add('is-visible'));return;}
+ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -35px 0px'});
+ targets.forEach(el=>io.observe(el));
+ document.querySelectorAll('.trainer-stage video').forEach(v=>{v.muted=true;v.playsInline=true;const p=v.play();if(p&&p.catch)p.catch(()=>{});});
+})();
+</script>
+</body></html>

@@ -1,0 +1,302 @@
+<!doctype html><html lang="en"><head><title>Profile | Body Tone Fitness</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="./favicon.png"><link rel="apple-touch-icon" href="./favicon.png"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><style>
+:root{--black:#070707;--black2:#101010;--white:#f7f7f5;--gold:#c9a24a;--gold2:#e4c36c;--red:#b5111a;--muted:#92928e;--line:#292929}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}.hidden{display:none!important}
+.container{width:min(1180px,92%);margin:auto}.nav{position:sticky;top:0;z-index:50;background:rgba(7,7,7,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.navin{height:74px;display:flex;align-items:center;gap:26px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:2px}.logo{width:48px;height:48px;object-fit:contain;border-radius:50%}.brand small{display:block;color:var(--gold);font-size:8px;letter-spacing:3px}.links{margin-left:auto;display:flex;gap:18px;align-items:center}.links a{font-size:12px;color:#aaa}.links a:hover{color:#fff}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:5px;padding:12px 18px;font-weight:800;font-size:12px;cursor:pointer}.gold{background:var(--gold);color:#090909}.red{background:var(--red);color:#fff}.outline{background:transparent;color:#fff;border-color:#4a4a4a}.mobile-menu-btn{display:none;margin-left:auto;background:#0e0e0e;color:#fff;border:1px solid #333;border-radius:6px;width:44px;height:40px;font-size:20px}.mobile-menu{display:none}
+.hero{min-height:calc(100vh - 74px);display:flex;align-items:center;background:radial-gradient(circle at 80% 25%,rgba(201,162,74,.13),transparent 30%),linear-gradient(100deg,#070707 25%,rgba(7,7,7,.88)),url('logo.png') right 8% center/480px auto no-repeat}.kicker{font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(55px,8vw,105px);line-height:.88;letter-spacing:-4px;margin:15px 0 24px}.hero h1 em{font-style:normal;color:var(--gold)}.hero p,.muted{color:var(--muted);line-height:1.75}.hero p{max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.section{padding:88px 0}.dark2{background:#0c0c0c}.head{text-align:center;margin-bottom:38px}.head h2,.pagehero h1{font-size:42px;margin:8px 0;letter-spacing:-1px}.head p,.pagehero p{max-width:680px;margin:auto;color:var(--muted);line-height:1.7}.goldline{height:2px;width:45px;background:var(--gold);margin:16px auto}.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.card{background:linear-gradient(145deg,#111,#0c0c0c);border:1px solid var(--line);border-radius:10px;padding:24px}.card h3{margin:15px 0 8px}.icon{width:38px;height:38px;border:1px solid #3b3b3b;border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:11px;font-weight:900}.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.stat{padding:27px;text-align:center;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat b{display:block;color:var(--gold);font-size:30px}.stat span{font-size:10px;color:#888;letter-spacing:1px}
+.pagehero{padding:85px 0 60px;background:radial-gradient(circle at 80% 30%,rgba(181,17,26,.13),transparent 30%);border-bottom:1px solid var(--line)}.pagehero h1{font-size:62px;margin:10px 0}.price{font-size:36px;font-weight:900}.price small{font-size:12px;color:#777}.plan{position:relative}.featured{border-color:var(--gold)}.badge{position:absolute;right:15px;top:-11px;background:var(--red);font-size:9px;padding:5px 9px;border-radius:99px;font-weight:900}.plan ul{padding-left:18px;color:#aaa;line-height:2}
+.formbox{max-width:820px;margin:auto}.form{display:grid;gap:15px}.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field label{display:block;font-size:10px;font-weight:900;color:#ddd;margin-bottom:7px;letter-spacing:.5px}.field input,.field select,.field textarea{width:100%;background:#0b0b0b;border:1px solid #333;color:#fff;border-radius:6px;padding:13px;outline:0}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}textarea{min-height:105px;resize:vertical}.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.slot{background:#0c0c0c;color:#aaa;border:1px solid #333;border-radius:5px;padding:9px;font-size:11px;cursor:pointer}.slot.selected{background:var(--gold);color:#080808;border-color:var(--gold)}.notice{background:#111;border-left:3px solid var(--gold);padding:13px;color:#aaa;font-size:12px;line-height:1.6}.qr{border:1px dashed #444;padding:22px;text-align:center;color:#888}
+.person img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:7px;filter:grayscale(100%)}.special{color:var(--gold);font-size:11px;font-weight:800}.social{display:flex;gap:7px;margin-top:12px}.social button{width:32px;height:32px;border-radius:50%;border:1px solid #333;background:#0b0b0b;color:#aaa}
+.profilegrid{display:grid;grid-template-columns:220px 1fr;gap:18px}.side{background:#0d0d0d;border:1px solid var(--line);border-radius:10px;padding:15px;height:max-content}.side button{width:100%;text-align:left;background:none;border:0;color:#aaa;padding:12px;border-radius:5px}.side button.active,.side button:hover{background:var(--red);color:#fff}.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.report{display:flex;justify-content:space-between;align-items:center;border:1px solid #2c2c2c;padding:13px;border-radius:6px;margin-top:9px}.pill{font-size:10px;padding:4px 7px;border-radius:99px;background:#18361e;color:#8de39a}.footer{border-top:1px solid var(--line);padding:55px 0;color:#777}.footgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}.footer h4{color:#fff}.footer a{display:block;padding:5px 0;font-size:12px}.copyright{border-top:1px solid var(--line);padding-top:18px;margin-top:30px;font-size:11px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:100;display:grid;place-items:center;padding:20px}.modalbox{width:min(520px,100%);max-height:90vh;overflow:auto;background:#101010;border:1px solid #333;border-radius:10px;padding:28px}.close{float:right;background:none;border:0;color:#aaa;font-size:25px;cursor:pointer}.toast{position:fixed;right:20px;bottom:20px;background:#fff;color:#080808;padding:13px 18px;border-radius:5px;font-size:12px;font-weight:800;z-index:200}
+@media(max-width:900px){.links{display:none}.mobile-menu-btn{display:block}.mobile-menu.open{display:block;position:absolute;top:74px;left:0;right:0;background:#070707;border-bottom:1px solid #333;padding:12px 5% 18px}.mobile-menu a{display:block;padding:12px 0;border-bottom:1px solid #222;color:#ddd;font-size:13px}.mobile-menu .btn{width:100%;margin-top:9px}.hero{background:radial-gradient(circle at 85% 18%,rgba(201,162,74,.1),transparent 28%),linear-gradient(100deg,#070707 20%,rgba(7,7,7,.94)),url('logo.png') right 10% center/220px auto no-repeat}.hero .container{padding:55px 0 70px}.hero h1{font-size:clamp(48px,14vw,70px);letter-spacing:-2.5px}.actions{display:grid;grid-template-columns:1fr;max-width:390px}.actions .btn{width:100%}.g3,.g4,.two,.profilegrid,.footgrid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stat{border-bottom:1px solid var(--line)}.slots{grid-template-columns:repeat(3,1fr)}.pagehero h1{font-size:45px}.mini{grid-template-columns:1fr}}
+</style><style>
+.booking-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.cancel-test{border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;padding:9px 12px;border-radius:10px;cursor:pointer;font:inherit}
+.cancel-test:hover{border-color:#e74c3c;color:#ff8f85}
+.cancel-note{font-size:.8rem;opacity:.7;margin-top:6px}
+</style>
+<style id="btf-brand-navigation-fix">
+.brand{display:flex;align-items:center;gap:14px;white-space:nowrap}
+.brand-name{
+  display:inline-block !important;
+  white-space:nowrap !important;
+  color:#fff !important;
+  font-size:20px !important;
+  font-weight:900 !important;
+  letter-spacing:2px !important;
+  line-height:1 !important;
+}
+.brand-name small{display:inline !important;color:#fff !important;font-size:inherit !important}
+@media(max-width:560px){
+  .brand{gap:9px}
+  .brand-name{font-size:16px !important;letter-spacing:1.4px !important}
+}
+</style>
+
+
+<style id="btf-active-nav">
+.site-nav a.active-nav{
+  font-weight:800 !important;
+  color:#fff !important;
+  position:relative;
+}
+.site-nav a.active-nav::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-9px;
+  height:2px;
+  background:var(--gold,#d4af37);
+  border-radius:2px;
+}
+</style>
+
+<style id="btf-active-nav-fixed">
+.links a.active-nav{
+  font-weight:800 !important;
+  color:#fff !important;
+  position:relative;
+}
+.links a.active-nav::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-10px;
+  height:2px;
+  background:var(--gold,#d4af37);
+  border-radius:2px;
+}
+.mobile-menu a.active-nav{
+  font-weight:800 !important;
+  color:#fff !important;
+  border-bottom-color:var(--gold,#d4af37) !important;
+}
+</style>
+
+<style id="btf-mobile-image-fix">img{max-width:100%;}.page-photo-split img,.services-intro img,.booking-visual img,.contact-reference-card img,.photo-strip img,.person img{display:block;max-width:100%;}@media(max-width:900px){.hero{background-size:cover !important;background-position:center !important;}.page-photo-split img,.services-intro img,.booking-visual img,.contact-reference-card img{width:100%;height:auto;max-height:none;object-fit:contain;}}</style>
+
+<style id="btf-cancel-feature">
+.booking-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.cancel-test{border:1px solid #a83232!important;background:#190909!important;color:#fff!important;padding:10px 14px!important;border-radius:8px!important;cursor:pointer;font:inherit;font-weight:700}
+.cancel-test:hover{border-color:#e74c3c!important;background:#2a0b0b!important}
+.cancel-note{font-size:.8rem;opacity:.72;margin-top:6px}
+</style>
+<style id="btf-motion-css">
+/* BTF motion layer */
+:root{--motion-red:#e01622}
+body{overflow-x:hidden}
+@media (prefers-reduced-motion:no-preference){
+  .nav{animation:navDrop .7s cubic-bezier(.2,.8,.2,1) both}
+  .hero>*{animation:heroIn .9s cubic-bezier(.2,.8,.2,1) both}
+  .hero h1{animation-delay:.08s}.hero p{animation-delay:.16s}.hero .actions{animation-delay:.24s}
+  .card,.person,.page-photo-split,.stats,.gallery-item,.testimonial-card{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1),border-color .3s ease,box-shadow .3s ease}
+  .btf-reveal.is-visible{opacity:1;transform:none}
+  .card:hover,.person:hover{transform:translateY(-8px);border-color:rgba(224,22,34,.65);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+  .person img{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+  .person:hover img{transform:scale(1.035)}
+  .btn{transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(181,17,26,.22);filter:brightness(1.08)}
+  .brand .logo{animation:logoFloat 4s ease-in-out infinite}
+  .goldline{animation:linePulse 2.4s ease-in-out infinite}
+}
+@keyframes navDrop{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes logoFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-4px) rotate(1deg)}}
+@keyframes linePulse{0%,100%{transform:scaleX(1);opacity:.7}50%{transform:scaleX(1.45);opacity:1}}
+.btf-page-noise{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.035;background-image:radial-gradient(#fff .5px,transparent .5px);background-size:5px 5px;mix-blend-mode:screen}
+/* Trainer cinematic section */
+.trainer-stage{position:relative;overflow:hidden;padding:95px 0;background:#050505;border-top:1px solid #242424;border-bottom:1px solid #242424}
+.trainer-stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25;filter:contrast(1.08) saturate(.75);pointer-events:none}
+.trainer-stage:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.96),rgba(5,5,5,.68),rgba(5,5,5,.9));pointer-events:none}
+.trainer-stage .container{position:relative;z-index:2}
+.trainer-stage h2{font-size:clamp(48px,7vw,92px);line-height:.9;letter-spacing:-3px;margin:0 0 18px;max-width:820px}.trainer-stage h2 span{color:var(--motion-red)}
+.trainer-stage p{max-width:640px;color:#b8b8b8;line-height:1.8}
+.trainer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.person{padding:0;overflow:hidden;background:linear-gradient(145deg,#121212,#090909);border-radius:16px}
+.person img{display:block;width:100%;height:520px;object-fit:cover;object-position:center top;border-radius:0;filter:none}
+.person .trainer-copy{padding:26px 28px 30px}.person h3{font-size:28px;margin:0 0 8px}.person h3 strong{font-weight:900;color:#fff}.person .special{color:var(--motion-red);letter-spacing:1px}.person p{color:#a8a8a8;font-size:13px;line-height:1.8;margin-top:10px}
+.trainer-bg-badge{display:inline-flex;padding:7px 11px;border:1px solid rgba(224,22,34,.5);color:#fff;font-size:9px;font-weight:900;letter-spacing:2px;margin-bottom:18px;background:rgba(224,22,34,.08)}
+@media(max-width:900px){.trainer-grid{grid-template-columns:1fr}.person img{height:560px}}
+@media(max-width:560px){.person img{height:460px}.trainer-stage{padding:72px 0}.trainer-stage h2{letter-spacing:-2px}}
+</style></head><body><nav class="nav"><div class="container navin">
+<a class="brand" href="index.html"><img class="logo" src="./logo.png"><span class="brand-name">BODY TONE FITNESS</span></a>
+<div class="links"><a href="index.html">Home</a><a href="membership.html">Membership</a><a href="services.html">Services</a><a href="trainers.html">Trainers</a><a href="professionals.html">Professionals</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="profile.html" class="active-nav">Profile</a><button class="btn outline guest" onclick="openAuth('login')">Login</button><button class="btn gold guest" onclick="openAuth('signup')">Sign Up</button><button class="btn gold member hidden" onclick="location.href='profile.html'">My Profile</button><button class="btn outline member hidden" onclick="signOut()">Logout</button></div>
+<button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+<div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="membership.html">Membership</a><a href="services.html">Services</a><a href="blood-test.html">Book Blood Test</a><a href="bmi.html">Book BMI Test</a><a href="trainers.html">Trainers</a><a href="professionals.html">Professionals</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="profile.html" class="active-nav">My Profile</a><button class="btn outline guest" onclick="openAuth('login')">Login</button><button class="btn gold guest" onclick="openAuth('signup')">Sign Up</button><button class="btn gold member hidden" onclick="location.href='profile.html'">My Profile</button><button class="btn outline member hidden" onclick="signOut()">Logout</button></div>
+</div></nav><main><section class="pagehero"><div class="container"><div class="kicker">MEMBER AREA</div><h1>Welcome, <span id="memberName">Member</span>.</h1><p>Your account, memberships, bookings, reminders and private reports.</p></div></section><section class="section"><div class="container profilegrid"><aside class="side"><button class="active">Dashboard</button><button onclick="document.querySelector('#edit').scrollIntoView()">Profile Information</button><button onclick="document.querySelector('#membershipCard').scrollIntoView()">Membership</button><button onclick="document.querySelector('#bookings').scrollIntoView()">Bookings</button><button onclick="document.querySelector('#reportsCard').scrollIntoView()">Reports</button></aside><div>
+<div class="mini"><div class="card"><div class="kicker">MEMBERSHIP</div><h3 id="membership">Loading…</h3><p class="muted" id="membershipStatus"></p></div><div class="card"><div class="kicker">NEXT TEST</div><h3 id="nextTest">Loading…</h3><p class="muted" id="nextTestLabel">BMI retest</p></div><div class="card"><div class="kicker">MEMBER</div><h3 id="memberName">—</h3></div></div>
+<div class="card" id="bookings" style="margin-top:18px"><div class="kicker">TEST BOOKINGS</div><h3 id="recentBooking">Loading…</h3><p class="muted" style="margin:8px 0 18px">You can cancel a confirmed test from here if there are at least 4 hours remaining before the appointment.</p><div class="kicker" style="margin-top:22px">TEST HISTORY</div><div id="bookingHistory"></div></div>
+<div class="card" id="reportsCard" style="margin-top:18px"><div class="kicker">PRIVATE REPORTS</div><h3>My Blood Test Reports</h3><div id="reportList"></div><div class="notice" style="margin-top:14px">Reports are stored in a private bucket and accessed through short-lived authorized links.</div></div>
+<div class="card" id="edit" style="margin-top:18px"><div class="kicker">PROFILE INFORMATION</div><form class="form" onsubmit="saveProfile(event)"><div class="two"><div class="field"><label>FULL NAME</label><input id="editName"></div><div class="field"><label>PHONE</label><input id="editPhone"></div></div><button class="btn gold">Save Profile</button></form></div>
+<div class="card" id="membershipCard" style="margin-top:18px"><div class="kicker">ADMIN</div><h3>Staff Report Upload</h3><p class="muted">Visible only to accounts with the admin role.</p><button class="btn red" onclick="adminUpload()">Open Admin Upload</button></div>
+</div></div></section></main><footer class="footer"><div class="container"><div class="footgrid"><div><div class="brand"><img class="logo" src="./logo.png"><span>BODY TONE<small>FITNESS</small></span></div><p>Train with purpose. Live stronger.</p></div><div><h4>Explore</h4><a href="membership.html">Membership</a><a href="services.html">Health Services</a><a href="trainers.html">Trainers</a></div><div><h4>Support</h4><a href="profile.html" class="active-nav">My Profile</a><a href="contact.html">Contact</a><a href="about.html">FAQ</a></div><div><h4>Hours</h4><p>6:00 AM – 10:00 PM<br>Monday – Sunday</p></div><div><h4>Find Us</h4><p>4th-floor rooftop, above First Cry<br>Beside Sukruti PU College<br>Shirur Park Road, near Shirur Park Circle</p><a class="btn outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Body+Tone+Fitness+Shirur+Park+Circle+Hubballi">Visit Now</a><a href="tel:+918660169891">+91 86601 69891</a></div></div><div class="copyright">© 2026 Body Tone Fitness. All rights reserved.</div></div></footer><div id="modal" class="modal hidden"><div id="modalContent" class="modalbox"></div></div><div id="toast" class="toast hidden"></div><script>
+const SUPABASE_URL = window.BTF_CONFIG?.supabaseUrl || "";
+const SUPABASE_ANON_KEY = window.BTF_CONFIG?.supabaseAnonKey || "";
+let sb = null;
+function configError(){
+ const c=window.BTF_CONFIG||{};
+ if(!c.supabaseUrl || c.supabaseUrl.includes("YOUR_PROJECT") || !c.supabaseAnonKey || c.supabaseAnonKey.includes("YOUR_"))
+   return "Supabase is not configured yet. Add your Project URL and Publishable/anon key to config.js.";
+ if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(c.supabaseUrl))
+   return "The Supabase Project URL in config.js is invalid.";
+ return "";
+}
+async function initSupabase(){
+ const ce=configError(); if(ce){window.BTF_SETUP_ERROR=ce; return false;}
+ if(!SUPABASE_URL || !SUPABASE_ANON_KEY) return false;
+ if(!window.supabase) return false;
+ sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+ sb.auth.onAuthStateChange(()=>updateAuthUI());
+ return true;
+}
+function toast(m){const t=document.querySelector('#toast');t.textContent=m;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2500)}
+function toggleMenu(){document.querySelector('#mobileMenu')?.classList.toggle('open')}
+function closeMenu(){document.querySelector('#mobileMenu')?.classList.remove('open')}
+async function currentUser(){if(!sb)return null;const {data:{user}}=await sb.auth.getUser();return user}
+async function updateAuthUI(){
+ const u=await currentUser(); const logged=!!u;
+ document.querySelectorAll('.guest').forEach(x=>x.classList.toggle('hidden',logged));
+ document.querySelectorAll('.member').forEach(x=>x.classList.toggle('hidden',!logged));
+ if(document.querySelector('#memberName')&&u)document.querySelector('#memberName').textContent=u.user_metadata?.full_name||u.email;
+}
+function openAuth(mode){
+ if(!sb){showConfigNotice();return}
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">${mode==='login'?'MEMBER LOGIN':'JOIN BODY TONE'}</div><h2>${mode==='login'?'Welcome back.':'Create your member account.'}</h2><form class="form" onsubmit="submitAuth(event,'${mode}')">${mode==='signup'?'<div class="field"><label>FULL NAME</label><input id="authName" required></div>':''}<div class="field"><label>EMAIL</label><input id="authEmail" type="email" required></div><div class="field"><label>PASSWORD</label><input id="authPassword" type="password" minlength="6" required><div class="forgot-password"><a href="reset-password.html">Forgot your password?</a></div></div><button class="btn gold">${mode==='login'?'Sign In':'Create Account'}</button></form><p class="muted" style="font-size:11px">Your account is stored in the secure authentication system, not in the browser.</p>`)
+}
+async function submitAuth(e,mode){
+ e.preventDefault(); if(!sb)return;
+ const email=document.querySelector('#authEmail').value.trim(),password=document.querySelector('#authPassword').value;
+ let r;
+ if(mode==='signup'){const name=document.querySelector('#authName').value.trim();r=await sb.auth.signUp({email,password,options:{data:{full_name:name}}})}
+ else r=await sb.auth.signInWithPassword({email,password});
+ if(r.error){
+ const msg=(r.error.message||"").toLowerCase().includes("fetch")
+  ? "Could not reach Supabase. Check config.js and Supabase Auth URL settings."
+  : r.error.message;
+ toast(msg); return
+ }
+ closeModal();await updateAuthUI();toast(mode==='signup'?'Account created. Check email if confirmation is enabled.':'Signed in successfully.');setTimeout(()=>location.href="profile.html",500)
+}
+async function signOut(){if(sb)await sb.auth.signOut();closeMenu();toast('Signed out');setTimeout(()=>location.href="index.html",300)}
+function showConfigNotice(){
+ const msg=window.BTF_SETUP_ERROR||"Supabase connection is unavailable.";
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">ACCOUNT CONNECTION</div><h2>Supabase setup needed</h2><p class="muted">${msg}</p><p class="muted">After changing config.js, redeploy the complete folder to Netlify.</p>`)
+}
+function modal(h){document.querySelector('#modalContent').innerHTML=h;document.querySelector('#modal').classList.remove('hidden')}
+function closeModal(){document.querySelector('#modal').classList.add('hidden')}
+
+async function choosePlan(name,price){
+ if(!await currentUser()){openAuth('login');return}
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">MEMBERSHIP</div><h2>${name}</h2><div class="price">₹${price.toLocaleString()}<small>/month</small></div><p class="muted">Payment gateway is ready to be connected. The membership is only activated after verified payment.</p><button class="btn gold" onclick="startPayment('${name}',${price})">Continue to UPI Checkout</button>`)
+}
+async function startPayment(name,price){
+ toast('Connect Razorpay/your verified UPI gateway to enable live checkout.');
+ closeModal()
+}
+
+function slots(interval){let a=[];[[6,10],[17,21]].forEach(r=>{for(let h=r[0];h<r[1];h++)for(let m=0;m<60;m+=interval)a.push(String(h).padStart(2,'0')+':'+String(m).padStart(2,'0'))});return a}
+function makeSlots(interval){const el=document.querySelector('#slots');if(el)el.innerHTML=slots(interval).map(s=>`<button type="button" class="slot" onclick="pickSlot(this,'${s}')">${s}</button>`).join('')}
+function pickSlot(el,v){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');document.querySelector('#slot').value=v}
+async function submitBooking(e,type){
+ e.preventDefault();const u=await currentUser();if(!u){openAuth('login');return}
+ const slot=document.querySelector('#slot').value;if(!slot){toast('Choose a time slot');return}
+ const date=document.querySelector('#date').value, locationValue=document.querySelector('#location')?.value||'At Gym', address=document.querySelector('#address')?.value||null;
+ const {error}=await sb.from('test_bookings').insert({user_id:u.id,test_type:type,booking_date:date,booking_time:slot,location:locationValue,address:address,status:'confirmed'});
+ if(error){toast(error.message);return}
+ if(type==='bmi'){
+   const d=new Date(date+'T12:00:00');d.setDate(d.getDate()+30);
+   await sb.from('test_reminders').upsert({user_id:u.id,booking_id:null,reminder_type:'BMI_RETEST',due_date:d.toISOString().slice(0,10),status:'pending'},{onConflict:'user_id,reminder_type'})
+ }
+ toast(type==='bmi'?'BMI test booked. Retest reminder saved.':'Blood test booked.');
+ setTimeout(()=>location.href="profile.html",700)
+}
+function todayISO(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function appointmentDateTime(date,time){const [y,m,d]=date.split('-').map(Number);const [hh,mm]=time.split(':').map(Number);return new Date(y,m-1,d,hh,mm,0,0)}
+function setDateMinimum(){const input=document.querySelector('#date');if(input){input.min=todayISO();input.addEventListener('change',()=>{if(input.value && input.value<todayISO()){input.value='';toast('That date has already passed. Please choose today or a future date.');}})}}
+async function cancelTest(bookingId){
+ const u=await currentUser();if(!u){openAuth('login');return}
+ const {data:b,error:fetchError}=await sb.from('test_bookings').select('*').eq('id',bookingId).eq('user_id',u.id).maybeSingle();
+ if(fetchError||!b){toast('Booking not found.');return}
+ if(b.status!=='confirmed'){toast('This test cannot be cancelled.');return}
+ const appt=appointmentDateTime(b.booking_date,b.booking_time),remaining=appt.getTime()-Date.now();
+ if(remaining<4*60*60*1000){toast('Cancellation is only available at least 4 hours before the test.');return}
+ if(!confirm(`Cancel your ${b.test_type==='bmi'?'BMI':'Blood'} test on ${b.booking_date} at ${b.booking_time}?`))return;
+ const {error}=await sb.from('test_bookings').update({status:'cancelled',cancelled_at:new Date().toISOString()}).eq('id',bookingId).eq('user_id',u.id).eq('status','confirmed');
+ if(error){toast(error.message);return}
+ if(b.test_type==='bmi'){await sb.from('test_reminders').delete().eq('user_id',u.id).eq('reminder_type','BMI_RETEST').eq('status','pending');}
+ toast('Test cancelled.');await loadProfile();
+}
+async function loadProfile(){
+ const u=await currentUser();if(!u){openAuth('login');return}
+ const name=u.user_metadata?.full_name||u.email; if(document.querySelector('#memberName'))document.querySelector('#memberName').textContent=name;
+ const {data:profile}=await sb.from('profiles').select('*').eq('id',u.id).maybeSingle();
+ const {data:memberships}=await sb.from('memberships').select('*').eq('user_id',u.id).order('created_at',{ascending:false});
+ const {data:bookings}=await sb.from('test_bookings').select('*').eq('user_id',u.id).order('booking_date',{ascending:false}).order('booking_time',{ascending:false});
+ const {data:rem}=await sb.from('test_reminders').select('*').eq('user_id',u.id).eq('status','pending').order('due_date',{ascending:true}).limit(1);
+ const {data:reports}=await sb.from('reports').select('*').eq('user_id',u.id).order('uploaded_at',{ascending:false});
+ document.querySelector('#membership').textContent=memberships?.[0]?.plan_name||'No active membership';
+ document.querySelector('#membershipStatus').textContent=memberships?.[0]?.status||'—';
+ document.querySelector('#nextTest').textContent=rem?.[0]?.due_date?new Date(rem[0].due_date).toLocaleDateString():'Not scheduled';document.querySelector('#nextTestLabel').textContent=rem?.[0]?.due_date?'BMI retest':'No retest scheduled';
+ const visibleBookings=(bookings||[]).filter(b=>b.status==='confirmed'); const b=visibleBookings[0]; document.querySelector('#recentBooking').textContent=b?`${b.test_type==='bmi'?'BMI Test':'Blood Test'} — ${b.booking_date} at ${b.booking_time} — Confirmed`:'No active test bookings';
+ document.querySelector('#bookingHistory').innerHTML=visibleBookings.map(b=>{
+   const appt=appointmentDateTime(b.booking_date,b.booking_time), canCancel=appt.getTime()-Date.now()>=4*60*60*1000; return `<div class="report"><div><b>${b.test_type==='bmi'?'BMI Test':'Blood Test'}</b><div class="muted">${b.booking_date} • ${b.booking_time} • ${b.location}</div>${canCancel?'<div class="cancel-note">Cancellation available until 4 hours before the test.</div>':'<div class="cancel-note">Cancellation is no longer available within 4 hours of the test.</div>'}</div><div><span class="pill">Confirmed</span>${canCancel?`<div class="booking-actions"><button class="cancel-test" onclick="cancelTest('${b.id}')">Cancel Test</button></div>`:''}</div></div>`
+ }).join('')||'<p class="muted">No active test bookings.</p>';
+ document.querySelector('#reportList').innerHTML=(reports||[]).map(r=>`<div class="report"><div><b>${r.title||'Blood Test Report'}</b><div class="muted">${new Date(r.uploaded_at).toLocaleDateString()}</div></div><button class="btn outline" onclick="viewReport('${r.id}')">View</button></div>`).join('')||'<p class="muted">No reports uploaded yet.</p>';
+}
+async function viewReport(id){
+ const {data,error}=await sb.from('reports').select('storage_path').eq('id',id).single();if(error){toast(error.message);return}
+ const {data:url}=await sb.storage.from('medical-reports').createSignedUrl(data.storage_path,120);if(url?.signedUrl)window.open(url.signedUrl,'_blank');else toast('Could not open report');
+}
+async function saveProfile(e){
+ e.preventDefault();const u=await currentUser();if(!u)return;
+ const name=document.querySelector('#editName').value.trim(),phone=document.querySelector('#editPhone').value.trim();
+ const {error}=await sb.from('profiles').upsert({id:u.id,full_name:name,phone:phone});
+ if(error){toast(error.message);return}
+ await sb.auth.updateUser({data:{full_name:name}});toast('Profile updated');loadProfile()
+}
+async function adminUpload(){
+ const u=await currentUser();if(!u){openAuth('login');return}
+ const {data:p}=await sb.from('profiles').select('role').eq('id',u.id).single();
+ if(p?.role!=='admin'){toast('Admin access required');return}
+ modal(`<button class="close" onclick="closeModal()">×</button><div class="kicker">ADMIN</div><h2>Upload Member Report</h2><form class="form" onsubmit="uploadReport(event)"><div class="field"><label>MEMBER USER ID</label><input id="reportUser" required placeholder="UUID from member profile"></div><div class="field"><label>REPORT TITLE</label><input id="reportTitle" value="Blood Test Report" required></div><div class="field"><label>PDF REPORT</label><input id="reportFile" type="file" accept=".pdf" required></div><button class="btn red">Upload Securely</button></form>`)
+}
+async function uploadReport(e){
+ e.preventDefault();const u=await currentUser();const {data:p}=await sb.from('profiles').select('role').eq('id',u.id).single();if(p?.role!=='admin'){toast('Admin access required');return}
+ const member=document.querySelector('#reportUser').value.trim(),file=document.querySelector('#reportFile').files[0];if(!file)return;
+ const path=`${member}/${crypto.randomUUID()}-${file.name.replace(/[^a-zA-Z0-9._-]/g,'_')}`;
+ const up=await sb.storage.from('medical-reports').upload(path,file,{contentType:'application/pdf',upsert:false});if(up.error){toast(up.error.message);return}
+ const ins=await sb.from('reports').insert({user_id:member,title:document.querySelector('#reportTitle').value,storage_path:path,uploaded_by:u.id});if(ins.error){await sb.storage.from('medical-reports').remove([path]);toast(ins.error.message);return}
+ closeModal();toast('Private report uploaded to the member profile')
+}
+initSupabase().then(()=>{updateAuthUI();loadProfile().then(()=>{const n=document.querySelector('#memberName')?.textContent;if(document.querySelector('#editName')&&n)document.querySelector('#editName').value=n;});});</script><script>
+function copyGymPhone(){
+ const n='+91 86601 69891';
+ navigator.clipboard?.writeText(n).then(()=>{const t=document.querySelector('#toast');if(t){t.textContent='Number copied';t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),1600)}}).catch(()=>{});
+}
+</script>
+<script id="btf-internal-nav-fix">
+document.addEventListener('click', function(e){
+  const a=e.target.closest('a[href]');
+  if(!a)return;
+  const href=a.getAttribute('href')||'';
+  if(/\.html(?:[?#].*)?$/i.test(href) && !/^(https?:|mailto:|tel:)/i.test(href)){
+    a.removeAttribute('target');
+  }
+});
+</script>
+
+
+<script id="btf-motion-script">
+(function(){
+ const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const targets=document.querySelectorAll('.card,.person,.page-photo-split,.stats,.gallery-item,.testimonial-card');
+ targets.forEach(el=>el.classList.add('btf-reveal'));
+ if(reduce){targets.forEach(el=>el.classList.add('is-visible'));return;}
+ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -35px 0px'});
+ targets.forEach(el=>io.observe(el));
+ document.querySelectorAll('.trainer-stage video').forEach(v=>{v.muted=true;v.playsInline=true;const p=v.play();if(p&&p.catch)p.catch(()=>{});});
+})();
+</script>
+</body></html>
